@@ -299,6 +299,11 @@ MonoBehaviour:
     collider: {fileID: 667217046}
   - yPosition: 0
     collider: {fileID: 908547056}
+  fireRing:
+    prefab: {fileID: 3516832830611272707, guid: 879f8d2b5b883734abe1e14f60ae5113, type: 3}
+    spawnerTimer: 0
+    spawnerDuration: 1
+    spawnerDurationRandomOff: 0.5
 --- !u!1 &255655307
 GameObject:
   m_ObjectHideFlags: 0

@@ -268,23 +268,6 @@ public class Character : MonoBehaviour
     {
         var interactObj = other.gameObject.GetComponent<InteractObject>();
         
-        // ignore if the object and character are in different lane
-        if (currentLane != interactObj.lane)
-        {
-            return;
-        }
-
-        if (other.CompareTag("FireRing"))
-        {
-            // Check whether the current jump frame is free from fire ring damage
-            if (IsInvincibleToFireRing() == false)
-            {
-                animator.SetBool("Die", true);
-                animator.SetBool("DieOnFire", true);
-                Die();
-            }
-        }
-
         if (other.CompareTag("SlaughterMachine"))
         {
             animator.SetBool("Die", true);
@@ -303,6 +286,27 @@ public class Character : MonoBehaviour
             characterState = CharacterState.Hurt;
             hurtTimer = hurtDuration;
             animator.SetBool("Hurt", true);
+        }
+
+        if (interactObj != null)
+        {
+            // ignore if the object and character are in different lane
+            if (currentLane != interactObj.currentLane)
+            {
+                return;
+            }
+
+            if (other.CompareTag("FireRing"))
+            {
+                // Check whether the current jump frame is free from fire ring damage
+                if (IsInvincibleToFireRing() == false)
+                {
+                    animator.SetBool("Die", true);
+                    animator.SetBool("DieOnFire", true);
+                    Die();
+                }
+            }
+            
         }
     }
     public void Die()

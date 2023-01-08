@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractObject : MonoBehaviour
 {
-    public int lane;
+    public int currentLane;
     // Start is called before the first frame update
     void Start()
     {
