@@ -5,6 +5,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum JumpType
+{
+    SmallJump = 0,
+    BigJump = 1
+}
+
 public class Character : MonoBehaviour
 {
     public static float gravity = 30.0f;
@@ -36,6 +42,14 @@ public class Character : MonoBehaviour
     public bool alive = true;
 
     public float fireRingInvincibleYSpeedRange = 3.0f;
+    
+    public float standCapsuleHeight = 1.74f;
+    
+    public float jumpCapsuleHeight = 1.0f;
+    
+    public float bigJumpCapsuleHeight = 0.5f;
+
+    public JumpType jumpType = JumpType.SmallJump;
 
     protected void Awake()
     {
@@ -50,6 +64,7 @@ public class Character : MonoBehaviour
 
         xSpeed = runSpeed;
         targetXSpeed = xSpeed;
+        controller.height = standCapsuleHeight;
     }
 
     void UpdateLaneCollision()
@@ -116,15 +131,35 @@ public class Character : MonoBehaviour
         {
             ySpeed -= gravity * Time.fixedDeltaTime;
         }
-        
-        // Apply drag after sprint to normal speed
-        if (targetXSpeed < xSpeed)
+
+        if (controller.isGrounded)
         {
-            xSpeed -= drag * Time.deltaTime;
+            // Apply drag after sprint to normal speed
+            if (targetXSpeed < xSpeed)
+            {
+                xSpeed -= drag * Time.deltaTime;
+            }
+            else
+            {
+                xSpeed = targetXSpeed;
+            }
+        }
+        
+        if (IsInvincibleToFireRing())
+        {
+            if (jumpType == JumpType.SmallJump)
+            {
+                controller.height = jumpCapsuleHeight;
+            }
+            else
+            {
+                controller.height = bigJumpCapsuleHeight;
+            }
+            
         }
         else
         {
-            xSpeed = targetXSpeed;
+            controller.height = standCapsuleHeight;
         }
     }
 
@@ -134,15 +169,17 @@ public class Character : MonoBehaviour
         {
             if (xSpeed > runSpeed)
             {
+                jumpType = JumpType.BigJump;
                 // Also apply sprint speed when big jump
                 animator.speed = 1.0f;
-                sprintTimer = sprintDuration;
-                xSpeed = sprintSpeed;
+                // sprintTimer = sprintDuration;
+                // xSpeed = sprintSpeed;
                 ySpeed = bigJumpSpeed;
                 animator.SetTrigger("BigJump");
             }
             else
             {
+                jumpType = JumpType.SmallJump;
                 animator.speed = 1.0f;
                 ySpeed = jumpSpeed;
                 animator.SetTrigger("Jump");

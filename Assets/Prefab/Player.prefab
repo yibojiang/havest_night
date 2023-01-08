@@ -125,10 +125,10 @@ MonoBehaviour:
   stamina: 10
   runSpeed: 4
   slowRunSpeed: 1.5
-  drag: 3
+  drag: 5
   jumpSpeed: 10
   bigJumpSpeed: 12
-  sprintSpeed: 6
+  sprintSpeed: 5
   sprintTimer: 0
   sprintDuration: 0.1
   animator: {fileID: 0}
@@ -136,6 +136,10 @@ MonoBehaviour:
   currentLane: 0
   alive: 1
   fireRingInvincibleYSpeedRange: 3.5
+  standCapsuleHeight: 1.74
+  jumpCapsuleHeight: 1
+  bigJumpCapsuleHeight: 0.5
+  jumpType: 0
 --- !u!114 &7794184144289724735
 MonoBehaviour:
   m_ObjectHideFlags: 0
