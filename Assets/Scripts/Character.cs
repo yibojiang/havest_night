@@ -95,11 +95,6 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
-        if (alive == false)
-        {
-            return;
-        }
-
         animator.SetFloat("xSpeed", xSpeed);
         animator.SetFloat("ySpeed", ySpeed);
         animator.SetBool("IsGrounded", controller.isGrounded);
@@ -117,11 +112,6 @@ public class Character : MonoBehaviour
 
     protected void FixedUpdate()
     {
-        if (alive == false)
-        {
-            return;
-        }
-        
         // Moving along the x axis
         var movingVector = new Vector3(xSpeed, ySpeed, 0.0f);
         CollisionFlags collisionFlags = controller.Move(movingVector * Time.fixedDeltaTime);
@@ -172,8 +162,6 @@ public class Character : MonoBehaviour
                 jumpType = JumpType.BigJump;
                 // Also apply sprint speed when big jump
                 animator.speed = 1.0f;
-                // sprintTimer = sprintDuration;
-                // xSpeed = sprintSpeed;
                 ySpeed = bigJumpSpeed;
                 animator.SetTrigger("BigJump");
             }
@@ -237,13 +225,28 @@ public class Character : MonoBehaviour
         {
             if (IsInvincibleToFireRing() == false)
             {
+                animator.SetBool("Die", true);
+                animator.SetBool("DieOnFire", true);
                 Die();
             }
+        }
+
+        if (other.CompareTag("SlaughterMachine"))
+        {
+            animator.SetBool("Die", true);
+            animator.SetBool("DieOnSlaughter", true);
+            Die();
         }
     }
     public void Die()
     {
         alive = false;
-        Debug.Log("Player Die");
+        targetXSpeed = 0.0f;
+        xSpeed = 0.0f;
+    }
+
+    public void Attack()
+    {
+        animator.SetTrigger("Attack");
     }
 }

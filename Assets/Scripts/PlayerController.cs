@@ -6,12 +6,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     public Character character;
 
     public int playerId;
 
     protected CharacterActions characterActions;
+
+    protected void Awake()
+    {
+        character = GetComponent<Character>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -31,12 +35,20 @@ public class PlayerController : MonoBehaviour
 
             characterActions.Jump.AddDefaultBinding( Key.H );
             characterActions.Jump.AddDefaultBinding( InputControlType.Action2 );
+            
+            characterActions.Attack.AddDefaultBinding( Key.J );
+            characterActions.Attack.AddDefaultBinding( InputControlType.Action3 );
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (character.alive == false)
+        {
+            return;
+        }
+        
         if (characterActions.Jump.WasPressed)
         {
             character.Jump();
@@ -56,10 +68,10 @@ public class PlayerController : MonoBehaviour
         {
             character.ChangeLaneDown();
         }
-    }
 
-    private void FixedUpdate()
-    {
-       
+        if (characterActions.Attack.WasPressed)
+        {
+            character.Attack();
+        }
     }
 }
