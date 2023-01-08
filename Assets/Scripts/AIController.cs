@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AIController : MonoBehaviour
 {
-    public Character character;
+    private Character character;
 
     protected void Awake()
     {
