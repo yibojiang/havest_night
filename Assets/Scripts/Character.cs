@@ -16,7 +16,7 @@ public class Character : MonoBehaviour
     public float stamina = 10;
 
     public float runSpeed = 1.0f;
-    public float slowRunSpeed = 1.0f;
+    public float slowRunSpeed = 0.6f;
     public float drag = 1.0f;
     
     public float jumpSpeed = 10.0f;
@@ -32,6 +32,10 @@ public class Character : MonoBehaviour
     public CharacterController controller;
     
     public int currentLane = 0;
+
+    public bool alive = true;
+
+    public float fireRingInvincibleYSpeedRange = 3.0f;
 
     protected void Awake()
     {
@@ -76,10 +80,16 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
+        if (alive == false)
+        {
+            return;
+        }
+
         animator.SetFloat("xSpeed", xSpeed);
         animator.SetFloat("ySpeed", ySpeed);
         animator.SetBool("IsGrounded", controller.isGrounded);
         animator.SetBool("IsAir", !controller.isGrounded);
+        animator.SetBool("IsLanding", IsInvincibleToFireRing() == false && ySpeed < 0);
 
         sprintTimer -= Time.deltaTime;
         if (sprintTimer < 0)
@@ -92,6 +102,10 @@ public class Character : MonoBehaviour
 
     protected void FixedUpdate()
     {
+        if (alive == false)
+        {
+            return;
+        }
         
         // Moving along the x axis
         var movingVector = new Vector3(xSpeed, ySpeed, 0.0f);
@@ -103,13 +117,14 @@ public class Character : MonoBehaviour
             ySpeed -= gravity * Time.fixedDeltaTime;
         }
         
+        // Apply drag after sprint to normal speed
         if (targetXSpeed < xSpeed)
         {
             xSpeed -= drag * Time.deltaTime;
         }
         else
         {
-            targetXSpeed = xSpeed;
+            xSpeed = targetXSpeed;
         }
     }
 
@@ -117,9 +132,12 @@ public class Character : MonoBehaviour
     {
         if (controller.isGrounded)
         {
-            if (xSpeed > 1.0f)
+            if (xSpeed > runSpeed)
             {
+                // Also apply sprint speed when big jump
                 animator.speed = 1.0f;
+                sprintTimer = sprintDuration;
+                xSpeed = sprintSpeed;
                 ySpeed = bigJumpSpeed;
                 animator.SetTrigger("BigJump");
             }
@@ -166,6 +184,29 @@ public class Character : MonoBehaviour
         GUILayout.Label($"xSpeed {xSpeed}");
         GUILayout.Label($"ySpeed {ySpeed}");
         GUILayout.Label($"isGrounded {controller.isGrounded}");
+        GUILayout.Label($"alive {alive}");
+        GUILayout.Label($"invincible {IsInvincibleToFireRing()}");
 #endif
+    }
+
+    public bool IsInvincibleToFireRing()
+    {
+        return Mathf.Abs(ySpeed) < fireRingInvincibleYSpeedRange;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("FireRing"))
+        {
+            if (IsInvincibleToFireRing() == false)
+            {
+                Die();
+            }
+        }
+    }
+    public void Die()
+    {
+        alive = false;
+        Debug.Log("Player Die");
     }
 }

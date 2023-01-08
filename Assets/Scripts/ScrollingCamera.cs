@@ -18,7 +18,7 @@ public class ScrollingCamera : MonoBehaviour
         
     }
 
-    private void LateUpdate()
+    void LateUpdate()
     {
         var movingVector = new Vector3(cameraSpeed, 0.0f, 0.0f);
         transform.position += movingVector * Time.deltaTime;
