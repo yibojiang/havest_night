@@ -3,6 +3,7 @@ enum PlayerStatus
 {
     Unborn,
     Alive,
-    Dead
+    Dead,
+    AI
 }
 
