@@ -26,4 +26,33 @@ public class AIController : MonoBehaviour
             return;
         }
     }
+
+    void FixedUpdate()
+    {
+        if (!character)
+        {
+            return;
+        }
+        
+        if (character.alive == false)
+        {
+            return;
+        }
+        
+        int triggerLayerMask = 1 << LayerMask.NameToLayer("Trigger");
+        RaycastHit[] hits;
+        // Raycast against the slaughter machine
+        hits = Physics.RaycastAll(character.transform.position, character.transform.position + new Vector3(-50.0f, 0, 0), Mathf.Infinity,
+            triggerLayerMask);
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            var hit = hits[i];
+            if (hit.collider.CompareTag("SlaughterMachine"))
+            {
+                character.Sprint();
+            }
+        }
+
+    }
 }
