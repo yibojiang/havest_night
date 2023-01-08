@@ -244,6 +244,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7794184144289724734, guid: 5ea596c388cdc0a41a19b578fba8d8e1, type: 3}
+      propertyPath: bigJumpSpeed
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ea596c388cdc0a41a19b578fba8d8e1, type: 3}
 --- !u!1 &148535695
@@ -1479,7 +1483,7 @@ Tilemap:
       m_TileIndex: 12
       m_TileSpriteIndex: 27
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 1
+      m_TileColorIndex: 6
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741827
@@ -3027,7 +3031,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 59
-      m_TileSpriteIndex: 8
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -3964,8 +3968,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 194540130, guid: 298d777ed5a03c149b51faa96b983a7f, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 4
     m_Data: {fileID: -182170868, guid: 298d777ed5a03c149b51faa96b983a7f, type: 3}
   - m_RefCount: 7
@@ -3976,8 +3980,8 @@ Tilemap:
     m_Data: {fileID: 671008405, guid: 298d777ed5a03c149b51faa96b983a7f, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 194540130, guid: 298d777ed5a03c149b51faa96b983a7f, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: -1220160035, guid: 298d777ed5a03c149b51faa96b983a7f, type: 3}
   - m_RefCount: 5
@@ -4092,18 +4096,18 @@ Tilemap:
   m_TileColorArray:
   - m_RefCount: 268
     m_Data: {r: 1, g: 1, b: 1, a: 1}
+  - m_RefCount: 0
+    m_Data: {r: 4.1644e-41, g: 4.1644e-41, b: 4.1644e-41, a: 4.1644e-41}
+  - m_RefCount: 0
+    m_Data: {r: 4.1644e-41, g: 4.1644e-41, b: 4.1644e-41, a: 4.1644e-41}
+  - m_RefCount: 0
+    m_Data: {r: 4.1644e-41, g: 4.1644e-41, b: 4.1644e-41, a: 4.1644e-41}
+  - m_RefCount: 0
+    m_Data: {r: 4.1644e-41, g: 4.1644e-41, b: 4.1644e-41, a: 4.1644e-41}
+  - m_RefCount: 0
+    m_Data: {r: 4.1644e-41, g: 4.1644e-41, b: 4.1644e-41, a: 4.1644e-41}
   - m_RefCount: 1
     m_Data: {r: 0.85806865, g: 0.5678604, b: 0.6590669, a: 1}
-  - m_RefCount: 0
-    m_Data: {r: 4.1644e-41, g: 4.1644e-41, b: 4.1644e-41, a: 4.1644e-41}
-  - m_RefCount: 0
-    m_Data: {r: 4.1644e-41, g: 4.1644e-41, b: 4.1644e-41, a: 4.1644e-41}
-  - m_RefCount: 0
-    m_Data: {r: 4.1644e-41, g: 4.1644e-41, b: 4.1644e-41, a: 4.1644e-41}
-  - m_RefCount: 0
-    m_Data: {r: 4.1644e-41, g: 4.1644e-41, b: 4.1644e-41, a: 4.1644e-41}
-  - m_RefCount: 0
-    m_Data: {r: 4.1644e-41, g: 4.1644e-41, b: 4.1644e-41, a: 4.1644e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4406,7 +4410,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2

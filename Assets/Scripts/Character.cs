@@ -17,6 +17,7 @@ public class Character : MonoBehaviour
     public float runSpeed = 1.0f;
     public float slowRunSpeed = 1.0f;
     public float jumpSpeed = 10.0f;
+    public float bigJumpSpeed = 15.0f;
     
     public float sprintSpeed = 1.0f;
 
@@ -72,7 +73,8 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
-        animator.SetFloat("Speed", xSpeed);
+        animator.SetFloat("xSpeed", xSpeed);
+        animator.SetFloat("ySpeed", ySpeed);
         animator.SetBool("IsGrounded", controller.isGrounded);
         animator.SetBool("IsAir", !controller.isGrounded);
 
@@ -108,12 +110,20 @@ public class Character : MonoBehaviour
     {
         if (controller.isGrounded)
         {
-            animator.speed = 1.0f;
-            ySpeed = jumpSpeed;
-            animator.SetTrigger("Jump");
+            if (xSpeed > 1.0f)
+            {
+                animator.speed = 1.0f;
+                ySpeed = bigJumpSpeed;
+                animator.SetTrigger("BigJump");
+            }
+            else
+            {
+                animator.speed = 1.0f;
+                ySpeed = jumpSpeed;
+                animator.SetTrigger("Jump");
+            }
         }
     }
-
     public void Sprint()
     {
         sprintTimer = sprintDuration;

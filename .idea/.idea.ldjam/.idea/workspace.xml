@@ -3,26 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2480492f-e150-41fb-aed2-930120a83ff4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_JUMP.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_JUMP.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/character animation sample_jump.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/character animation sample_jump.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/character animation sample_run.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/character animation sample_run.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/character animation sample_stand.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/character animation sample_stand.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Qrun.aseprite" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Qrun.aseprite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Texture/Qrun.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Qrun.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Sprites/Qrun.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Sprites/Qrun.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Sprites/Qrun.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Sprites/Qrun.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Sprites/ground block.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Sprites/ground block.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Sprites/ground block.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Sprites/ground block.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/ground block.aseprite" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/ground block.aseprite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TilePalette/Ground Palette.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TilePalette/Ground Palette.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1672904192136</updated>
       <workItem from="1672904208615" duration="675000" />
-      <workItem from="1673118628660" duration="18756000" />
+      <workItem from="1673118628660" duration="20487000" />
     </task>
     <servers />
   </component>
