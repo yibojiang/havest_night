@@ -23,8 +23,7 @@ public enum CharacterState
 public class Character : MonoBehaviour
 {
     public static float gravity = 30.0f;
-
-    public float targetXSpeed = 0.0f;
+    
     public float xSpeed = 1.0f;
     protected float ySpeed = 0.0f;
 
@@ -38,10 +37,6 @@ public class Character : MonoBehaviour
     public float bigJumpSpeed = 15.0f;
     
     public float sprintSpeed = 1.0f;
-
-    public float sprintTimer = 0.0f;
-    public float sprintDuration = 0.5f;
-
     public Animator animator;
 
     public CharacterController controller;
@@ -89,7 +84,6 @@ public class Character : MonoBehaviour
         UpdateLaneCollision();
 
         xSpeed = runSpeed;
-        targetXSpeed = xSpeed;
         controller.height = standCapsuleHeight;
     }
 
@@ -149,43 +143,44 @@ public class Character : MonoBehaviour
                 animator.SetBool("Hurt", false);
             }
         }
-
-        sprintTimer -= Time.deltaTime;
-        if (sprintTimer < 0)
-        {
-            sprintTimer = 0.0f;
-            targetXSpeed = runSpeed;
-            animator.speed = 1.0f;
-        }
     }
 
     protected void FixedUpdate()
     {
+        // Moving along the x axis
+        var movingVector = new Vector3(xSpeed, ySpeed, 0.0f);
+        CollisionFlags collisionFlags = controller.Move(movingVector * Time.fixedDeltaTime);
+
+        // Moving along the y axis
+        if (controller.isGrounded == false)
+        {
+            ySpeed -= gravity * Time.fixedDeltaTime;
+        }
+
+        if (controller.isGrounded)
+        {
+            // Apply drag if speed large than the normal speed
+            if (xSpeed > runSpeed)
+            {
+                xSpeed -= drag * Time.fixedDeltaTime;
+            }
+        }
+        
+        // if player dies, apply drag to make the player stop
+        if (characterState == CharacterState.Death)
+        {
+            if (xSpeed > 0.0f)
+            {
+                xSpeed -= drag * Time.fixedDeltaTime;
+            }
+            else
+            {
+                xSpeed = 0.0f;
+            }
+        }
+        
         if (characterState == CharacterState.Run || characterState == CharacterState.Jump)
         {
-            // Moving along the x axis
-            var movingVector = new Vector3(xSpeed, ySpeed, 0.0f);
-            CollisionFlags collisionFlags = controller.Move(movingVector * Time.fixedDeltaTime);
-
-            // Moving along the y axis
-            if (controller.isGrounded == false)
-            {
-                ySpeed -= gravity * Time.fixedDeltaTime;
-            }
-
-            if (controller.isGrounded)
-            {
-                // Apply drag after sprint to normal speed
-                if (targetXSpeed < xSpeed)
-                {
-                    xSpeed -= drag * Time.deltaTime;
-                }
-                else
-                {
-                    xSpeed = targetXSpeed;
-                }
-            }
-        
             if (IsInvincibleToFireRing())
             {
                 if (jumpType == JumpType.SmallJump)
@@ -230,9 +225,7 @@ public class Character : MonoBehaviour
     {
         if (controller.isGrounded)
         {
-            sprintTimer = sprintDuration;
             xSpeed = sprintSpeed;
-            targetXSpeed = sprintSpeed;
             animator.speed = sprintSpeed / runSpeed;
         }
     }
@@ -273,8 +266,17 @@ public class Character : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        var interactObj = other.gameObject.GetComponent<InteractObject>();
+        
+        // ignore if the object and character are in different lane
+        if (currentLane != interactObj.lane)
+        {
+            return;
+        }
+
         if (other.CompareTag("FireRing"))
         {
+            // Check whether the current jump frame is free from fire ring damage
             if (IsInvincibleToFireRing() == false)
             {
                 animator.SetBool("Die", true);
@@ -306,7 +308,6 @@ public class Character : MonoBehaviour
     public void Die()
     {
         alive = false;
-        targetXSpeed = 0.0f;
         xSpeed = 0.0f;
         characterState = CharacterState.Death;
     }
