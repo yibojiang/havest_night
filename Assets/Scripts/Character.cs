@@ -11,6 +11,15 @@ public enum JumpType
     BigJump = 1
 }
 
+public enum CharacterState
+{
+    Run,
+    Jump,
+    Attack,
+    Hurt,
+    Death,
+}
+
 public class Character : MonoBehaviour
 {
     public static float gravity = 30.0f;
@@ -51,10 +60,25 @@ public class Character : MonoBehaviour
 
     public JumpType jumpType = JumpType.SmallJump;
 
+    public CharacterState characterState = CharacterState.Run;
+
+    public float attackTimer = 0.0f;
+    
+    public float attackDuration = 0.2f;
+
+    public float hurtTimer = 0.0f;
+    
+    public float hurtDuration = 0.4f;
+
+    
+    [SerializeField]
+    public Collider attackBox;
+
     protected void Awake()
     {
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
+        attackBox.enabled = false;
     }
 
     // Start is called before the first frame update
@@ -101,6 +125,29 @@ public class Character : MonoBehaviour
         animator.SetBool("IsAir", !controller.isGrounded);
         animator.SetBool("IsLanding", IsInvincibleToFireRing() == false && ySpeed < 0);
 
+        if (characterState == CharacterState.Attack)
+        {
+            attackTimer -= Time.deltaTime;
+            if (attackTimer < 0.0f)
+            {
+                attackTimer = 0.0f;
+                characterState = CharacterState.Run;
+                animator.SetBool("Attack", false);
+                attackBox.enabled = false;
+            }
+        }
+
+        if (characterState == CharacterState.Hurt)
+        {
+            hurtTimer -= Time.deltaTime;
+            if (hurtTimer < 0.0f)
+            {
+                hurtTimer = 0.0f;
+                characterState = CharacterState.Run;
+                animator.SetBool("Hurt", false);
+            }
+        }
+
         sprintTimer -= Time.deltaTime;
         if (sprintTimer < 0)
         {
@@ -112,44 +159,47 @@ public class Character : MonoBehaviour
 
     protected void FixedUpdate()
     {
-        // Moving along the x axis
-        var movingVector = new Vector3(xSpeed, ySpeed, 0.0f);
-        CollisionFlags collisionFlags = controller.Move(movingVector * Time.fixedDeltaTime);
-
-        // Moving along the y axis
-        if (controller.isGrounded == false)
+        if (characterState == CharacterState.Run || characterState == CharacterState.Jump)
         {
-            ySpeed -= gravity * Time.fixedDeltaTime;
-        }
+            // Moving along the x axis
+            var movingVector = new Vector3(xSpeed, ySpeed, 0.0f);
+            CollisionFlags collisionFlags = controller.Move(movingVector * Time.fixedDeltaTime);
 
-        if (controller.isGrounded)
-        {
-            // Apply drag after sprint to normal speed
-            if (targetXSpeed < xSpeed)
+            // Moving along the y axis
+            if (controller.isGrounded == false)
             {
-                xSpeed -= drag * Time.deltaTime;
+                ySpeed -= gravity * Time.fixedDeltaTime;
             }
-            else
+
+            if (controller.isGrounded)
             {
-                xSpeed = targetXSpeed;
+                // Apply drag after sprint to normal speed
+                if (targetXSpeed < xSpeed)
+                {
+                    xSpeed -= drag * Time.deltaTime;
+                }
+                else
+                {
+                    xSpeed = targetXSpeed;
+                }
             }
-        }
         
-        if (IsInvincibleToFireRing())
-        {
-            if (jumpType == JumpType.SmallJump)
+            if (IsInvincibleToFireRing())
             {
-                controller.height = jumpCapsuleHeight;
+                if (jumpType == JumpType.SmallJump)
+                {
+                    controller.height = jumpCapsuleHeight;
+                }
+                else
+                {
+                    controller.height = bigJumpCapsuleHeight;
+                }
+            
             }
             else
             {
-                controller.height = bigJumpCapsuleHeight;
+                controller.height = standCapsuleHeight;
             }
-            
-        }
-        else
-        {
-            controller.height = standCapsuleHeight;
         }
     }
 
@@ -237,16 +287,36 @@ public class Character : MonoBehaviour
             animator.SetBool("DieOnSlaughter", true);
             Die();
         }
+
+        if (other.CompareTag("AttackBox"))
+        {
+            // if character is hurt during attack, it will abort the attack action
+            if (characterState == CharacterState.Attack)
+            {
+                animator.SetBool("Attack", false);
+            }
+
+            characterState = CharacterState.Hurt;
+            hurtTimer = hurtDuration;
+            animator.SetBool("Hurt", true);
+        }
     }
     public void Die()
     {
         alive = false;
         targetXSpeed = 0.0f;
         xSpeed = 0.0f;
+        characterState = CharacterState.Death;
     }
 
     public void Attack()
     {
-        animator.SetTrigger("Attack");
+        if (characterState == CharacterState.Run)
+        {
+            characterState = CharacterState.Attack;
+            attackTimer = attackDuration;
+            animator.SetBool("Attack", true);
+            attackBox.enabled = true;
+        }
     }
 }
