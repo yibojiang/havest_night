@@ -10,6 +10,7 @@ class RandomTrapGenerator: MonoBehaviour
     [SerializeField] private float coolDown;
     [SerializeField] private float[] laneCoolDown;
     [SerializeField] private int spawnRatePerFrame = 33;
+    [SerializeField] private int spawnRatePerFrameDivider = 10000;
     [SerializeField] private Vector2 spawnOffset;
 
     private List<GameObject> available;
@@ -65,11 +66,9 @@ class RandomTrapGenerator: MonoBehaviour
 
             if (inUse[i].Count  < maxNumberPerLane && laneCoolDown[i] > coolDown && available.Count > 0)
             {
-                int roll = random.Next(0, 10000);
-                Debug.LogError(roll);
+                int roll = random.Next(0, spawnRatePerFrameDivider);
                 if(roll < spawnRatePerFrame)
                 {
-                    Debug.Log("spawned");
                     GameObject newSpawn = available[available.Count - 1];
                     available.RemoveAt(available.Count - 1);
                     inUse[i].Add(newSpawn);
