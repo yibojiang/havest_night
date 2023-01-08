@@ -120,17 +120,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 643c058fc6cbffa4aa5b01080c149959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetXSpeed: 0
   xSpeed: 1
   stamina: 10
   runSpeed: 0.5
   slowRunSpeed: 1
+  drag: 2
   jumpSpeed: 10
+  bigJumpSpeed: 12
   sprintSpeed: 3
   sprintTimer: 0
   sprintDuration: 0.1
   animator: {fileID: 0}
   controller: {fileID: 0}
-  isGrounded: 0
   currentLane: 0
 --- !u!114 &7794184144289724735
 MonoBehaviour:
