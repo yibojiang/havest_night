@@ -20,16 +20,16 @@ public class PlayerController : MonoBehaviour
 
         if (playerId == 0)
         {
-            characterActions.Up.AddDefaultBinding( Key.UpArrow );
+            characterActions.Up.AddDefaultBinding( Key.W );
             characterActions.Up.AddDefaultBinding( InputControlType.DPadUp );
 
-            characterActions.Down.AddDefaultBinding( Key.DownArrow );
+            characterActions.Down.AddDefaultBinding( Key.S );
             characterActions.Down.AddDefaultBinding( InputControlType.DPadDown );
+            
+            characterActions.Sprint.AddDefaultBinding( Key.G );
+            characterActions.Sprint.AddDefaultBinding( InputControlType.Action1 );
 
-            characterActions.Jump.AddDefaultBinding( Key.Space );
-            characterActions.Jump.AddDefaultBinding( InputControlType.Action1 );
-        
-            characterActions.Jump.AddDefaultBinding( Key.Space );
+            characterActions.Jump.AddDefaultBinding( Key.H );
             characterActions.Jump.AddDefaultBinding( InputControlType.Action2 );
         }
     }
@@ -37,14 +37,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (characterActions.Jump.WasPressed)
+        {
+            character.Jump();
+        }
+
+        if (characterActions.Sprint.WasPressed)
+        {
+            character.Sprint();
+        } 
     }
 
     private void FixedUpdate()
     {
-        if (characterActions.Jump.IsPressed)
-        {
-            character.Jump();
-        }
+       
     }
 }
