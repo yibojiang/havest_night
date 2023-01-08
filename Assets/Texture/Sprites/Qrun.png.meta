@@ -145,7 +145,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 7
@@ -166,7 +166,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 7
@@ -187,7 +187,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 7
@@ -208,7 +208,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 7
@@ -229,6 +229,90 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76cb14c88b8431a30800000000000000
+      internalID: 4184768436221623399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Qrun 5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dc179da2e89dd890800000000000000
+      internalID: -7431615710749057837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Qrun 6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34a08e3f433c53c50800000000000000
+      internalID: 6644431457452821059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Qrun 7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a60ee94073b03f60800000000000000
+      internalID: 8012101031950157480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Qrun 8
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 32
         width: 32
         height: 32
@@ -239,14 +323,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00000000000000000800000000000000
-      internalID: 0
+      spriteID: bdcead576014c7880800000000000000
+      internalID: -8611936891436340005
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Qrun 5
+      name: Qrun 9
       rect:
         serializedVersion: 2
         x: 32
@@ -260,14 +344,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00000000000000000800000000000000
-      internalID: 0
+      spriteID: 3c0de8951e96b0980800000000000000
+      internalID: -8571641049178517309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Qrun 6
+      name: Qrun 10
       rect:
         serializedVersion: 2
         x: 64
@@ -281,14 +365,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00000000000000000800000000000000
-      internalID: 0
+      spriteID: 6a30414a580e910c0800000000000000
+      internalID: -4604402279421574234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Qrun 7
+      name: Qrun 11
       rect:
         serializedVersion: 2
         x: 96
@@ -302,14 +386,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00000000000000000800000000000000
-      internalID: 0
+      spriteID: 2ec496ec73d0d1f70800000000000000
+      internalID: 9159491750478826722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Qrun 8
+      name: Qrun 12
       rect:
         serializedVersion: 2
         x: 0
@@ -323,14 +407,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00000000000000000800000000000000
-      internalID: 0
+      spriteID: c84e08dc26f2652b0800000000000000
+      internalID: -5596233385560185716
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Qrun 9
+      name: Qrun 13
       rect:
         serializedVersion: 2
         x: 32
@@ -344,8 +428,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00000000000000000800000000000000
-      internalID: 0
+      spriteID: b820f78e7944b9d90800000000000000
+      internalID: -7089997769133325685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Qrun 14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aba45279916185760800000000000000
+      internalID: 7446726283022912186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Qrun 15
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 204dff63e0e4efd70800000000000000
+      internalID: 9078779721784742914
       vertices: []
       indices: 
       edges: []
@@ -361,16 +487,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Qrun 6: 0
-      Qrun 8: 0
+      Qrun 10: -4604402279421574234
+      Qrun 15: 9078779721784742914
+      Qrun 6: 6644431457452821059
+      Qrun 18: 5885516045696764264
+      Qrun 19: -5874755349483390890
+      Qrun 8: -8611936891436340005
       Qrun 3: 8908962353917877372
-      Qrun 5: 0
+      Qrun 5: -7431615710749057837
+      Qrun 16: -7370025766505598165
       Qrun 0: 2637885925210006061
       Qrun 2: -669289267809286895
-      Qrun 4: 0
+      Qrun 14: 7446726283022912186
+      Qrun 4: 4184768436221623399
+      Qrun 11: 9159491750478826722
+      Qrun 17: -602154737099906806
       Qrun 1: -8424924226938061569
-      Qrun 9: 0
-      Qrun 7: 0
+      Qrun 9: -8571641049178517309
+      Qrun 12: -5596233385560185716
+      Qrun 13: -7089997769133325685
+      Qrun 7: 8012101031950157480
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -26,9 +26,7 @@ public class Character : MonoBehaviour
     public Animator animator;
 
     public CharacterController controller;
-
-    public bool isGrounded;
-
+    
     public int currentLane = 0;
 
     protected void Awake()
@@ -47,23 +45,36 @@ public class Character : MonoBehaviour
 
     void UpdateLaneCollision()
     {
+        Collider characterCollider = GetComponent<Collider>();
+        ySpeed = 0.0f;
         for (int laneIndex = 0; laneIndex < LaneManager.instance.Lanes.Length; laneIndex++)
         {
             if (currentLane == laneIndex)
             {
-                Physics.IgnoreCollision(LaneManager.instance.Lanes[laneIndex].collider, GetComponent<Collider>(), false);
+                Physics.IgnoreCollision(LaneManager.instance.Lanes[laneIndex].collider, characterCollider, false);
             }
             else
             {
-                Physics.IgnoreCollision(LaneManager.instance.Lanes[laneIndex].collider, GetComponent<Collider>(), true);
+                Physics.IgnoreCollision(LaneManager.instance.Lanes[laneIndex].collider, characterCollider, true);
             }
         }
+
+        Vector3 targetPosition = new Vector3(transform.position.x, LaneManager.instance.Lanes[currentLane].collider.transform.position.y + 0.5f, transform.position.z);
+        characterCollider.enabled = false;
+        transform.position = targetPosition;
+        // controller.Move(targetPosition - transform.position);
+        transform.position = targetPosition;
+        characterCollider.enabled = true;
+        // controller.transform.position = LaneManager.instance.Lanes[currentLane].collider.transform.position +
+        //                                 new Vector3(0.0f, 0.5f, 0.0f);
     }
 
     // Update is called once per frame
     protected void Update()
     {
         animator.SetFloat("Speed", xSpeed);
+        animator.SetBool("IsGrounded", controller.isGrounded);
+        animator.SetBool("IsAir", !controller.isGrounded);
 
         sprintTimer -= Time.deltaTime;
         if (sprintTimer < 0)
@@ -90,7 +101,6 @@ public class Character : MonoBehaviour
         if (controller.isGrounded == false)
         {
             ySpeed -= gravity * Time.fixedDeltaTime;
-            // controller.Move(ySpeed * Time.fixedDeltaTime);
         }
     }
 
@@ -98,6 +108,7 @@ public class Character : MonoBehaviour
     {
         if (controller.isGrounded)
         {
+            animator.speed = 1.0f;
             ySpeed = jumpSpeed;
             animator.SetTrigger("Jump");
         }
@@ -114,7 +125,7 @@ public class Character : MonoBehaviour
     {
         if (currentLane - 1 >= 0)
         {
-            currentLane++;
+            currentLane--;
         }
         UpdateLaneCollision();
     }

@@ -45,7 +45,17 @@ public class PlayerController : MonoBehaviour
         if (characterActions.Sprint.WasPressed)
         {
             character.Sprint();
-        } 
+        }
+        
+        if (characterActions.Up.WasPressed)
+        {
+            character.ChangeLaneUp();
+        }
+        
+        if (characterActions.Down.WasPressed)
+        {
+            character.ChangeLaneDown();
+        }
     }
 
     private void FixedUpdate()
