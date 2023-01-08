@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2480492f-e150-41fb-aed2-930120a83ff4" name="Changes" comment="" />
+    <list default="true" id="2480492f-e150-41fb-aed2-930120a83ff4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/HumanCharacter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/HumanCharacter.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_FALL.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_FALL.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Texture/Qrun.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Qrun.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Texture/Sprites/Banana_used.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Sprites/Banana_used.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Texture/Sprites/banana_prop.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Sprites/banana_prop.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,7 +94,7 @@
       <updated>1672904192136</updated>
       <workItem from="1672904208615" duration="675000" />
       <workItem from="1673118628660" duration="34079000" />
-      <workItem from="1673204028661" duration="13373000" />
+      <workItem from="1673204028661" duration="14804000" />
     </task>
     <servers />
   </component>

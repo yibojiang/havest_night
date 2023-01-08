@@ -7,6 +7,8 @@ TagManager:
   - FireRing
   - SlaughterMachine
   - AttackBox
+  - Banana_Used
+  - Item
   layers:
   - Default
   - TransparentFX

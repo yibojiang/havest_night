@@ -203,7 +203,7 @@ MonoBehaviour:
   attackTimer: 0
   attackDuration: 0.2
   hurtTimer: 0
-  hurtDuration: 0.5
+  hurtDuration: 0.8
   attackBox: {fileID: 1114805830}
 --- !u!143 &7794184144289724729
 CharacterController:

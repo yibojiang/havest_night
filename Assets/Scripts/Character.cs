@@ -297,15 +297,19 @@ public class Character : MonoBehaviour
 
         if (other.CompareTag("AttackBox"))
         {
-            // if character is hurt during attack, it will abort the attack action
-            if (characterState == CharacterState.Attack)
-            {
-                animator.SetBool("Attack", false);
-            }
+            Hurt();
+        }
+        
+        if (other.CompareTag("Banana_Used"))
+        {
+            Destroy(other.gameObject);
+            Hurt();
+        }
 
-            characterState = CharacterState.Hurt;
-            hurtTimer = hurtDuration;
-            animator.SetBool("Hurt", true);
+        if (other.CompareTag("Item"))
+        {
+            GetItem(interactObj);
+            Destroy(other.gameObject);
         }
 
         if (interactObj != null)
@@ -327,8 +331,24 @@ public class Character : MonoBehaviour
                     Die();
                 }
             }
-            
         }
+    }
+
+    public void GetItem(InteractObject item)
+    {
+        
+    }
+
+    public void Hurt()
+    {
+        // if character is hurt during attack, it will abort the attack action
+        if (characterState == CharacterState.Attack)
+        {
+            animator.SetBool("Attack", false);
+        }
+        characterState = CharacterState.Hurt;
+        hurtTimer = hurtDuration;
+        animator.SetBool("Hurt", true);
     }
     public void Die()
     {
