@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3516832830611272705}
   - component: {fileID: 3516832830611272704}
   - component: {fileID: 3516832830611272711}
+  - component: {fileID: 743899319685431533}
   m_Layer: 9
   m_Name: Firewheel
   m_TagString: FireRing
@@ -119,3 +120,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.69110346, y: 1.131082, z: 0.2}
   m_Center: {x: 0.043245554, y: 1.2267964, z: 0}
+--- !u!114 &743899319685431533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3516832830611272707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4d67336cdbef743a76ea41ece4fe88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLane: 0
