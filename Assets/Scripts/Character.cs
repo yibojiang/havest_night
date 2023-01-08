@@ -65,6 +65,8 @@ public class Character : MonoBehaviour
     
     public float hurtDuration = 0.4f;
 
+    private float xSpeedMultiplier = 1.0f;
+
     
     [SerializeField]
     public Collider attackBox;
@@ -147,8 +149,18 @@ public class Character : MonoBehaviour
 
     protected void FixedUpdate()
     {
+        // Set speed factor to 0 if player is attacking or hurt
+        if (characterState == CharacterState.Hurt || characterState == CharacterState.Attack)
+        {
+            xSpeedMultiplier = 0.0f;
+        }
+        else
+        {
+            xSpeedMultiplier = 1.0f;
+        }
+
         // Moving along the x axis
-        var movingVector = new Vector3(xSpeed, ySpeed, 0.0f);
+        var movingVector = new Vector3(xSpeed * xSpeedMultiplier, ySpeed, 0.0f);
         CollisionFlags collisionFlags = controller.Move(movingVector * Time.fixedDeltaTime);
 
         // Moving along the y axis
@@ -165,7 +177,7 @@ public class Character : MonoBehaviour
                 xSpeed -= drag * Time.fixedDeltaTime;
             }
         }
-        
+
         // if player dies, apply drag to make the player stop
         if (characterState == CharacterState.Death)
         {
@@ -208,14 +220,12 @@ public class Character : MonoBehaviour
             {
                 jumpType = JumpType.BigJump;
                 // Also apply sprint speed when big jump
-                animator.speed = 1.0f;
                 ySpeed = bigJumpSpeed;
                 animator.SetTrigger("BigJump");
             }
             else
             {
                 jumpType = JumpType.SmallJump;
-                animator.speed = 1.0f;
                 ySpeed = jumpSpeed;
                 animator.SetTrigger("Jump");
             }
@@ -226,7 +236,6 @@ public class Character : MonoBehaviour
         if (controller.isGrounded)
         {
             xSpeed = sprintSpeed;
-            animator.speed = sprintSpeed / runSpeed;
         }
     }
 
