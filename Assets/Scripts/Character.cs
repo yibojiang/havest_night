@@ -77,10 +77,13 @@ public class Character : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
-        attackBox.enabled = false;
-        
-        Physics.IgnoreCollision(controller, attackBox, true);
         sprinte = GetComponent<SpriteRenderer>();
+
+        if (attackBox)
+        {
+            attackBox.enabled = false;
+            Physics.IgnoreCollision(controller, attackBox, true);
+        }
     }
 
     // Start is called before the first frame update
@@ -134,7 +137,11 @@ public class Character : MonoBehaviour
                 attackTimer = 0.0f;
                 characterState = CharacterState.Run;
                 animator.SetBool("Attack", false);
-                attackBox.enabled = false;
+
+                if (attackBox)
+                {
+                    attackBox.enabled = false;
+                }
             }
         }
 
@@ -337,7 +344,10 @@ public class Character : MonoBehaviour
             characterState = CharacterState.Attack;
             attackTimer = attackDuration;
             animator.SetBool("Attack", true);
-            attackBox.enabled = true;
+            if (attackBox)
+            {
+                attackBox.enabled = true;
+            }
         }
     }
 }

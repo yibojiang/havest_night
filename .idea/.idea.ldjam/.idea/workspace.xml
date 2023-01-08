@@ -6,7 +6,6 @@
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/HumanCharacter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/HumanCharacter.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +88,7 @@
       <updated>1672904192136</updated>
       <workItem from="1672904208615" duration="675000" />
       <workItem from="1673118628660" duration="34079000" />
-      <workItem from="1673204028661" duration="7304000" />
+      <workItem from="1673204028661" duration="8884000" />
     </task>
     <servers />
   </component>
