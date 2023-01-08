@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     public PlayerStatus status = PlayerStatus.Unborn;
 
+    public Color playerColor = Color.white;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -115,5 +117,6 @@ public class PlayerController : MonoBehaviour
         GameObject newPlayer = Instantiate(playerPrefab, new Vector3(cameraPosition.x + 1f, lanePosition.y + 0.5f, lanePosition.z), Quaternion.identity);
         character = newPlayer.GetComponent<Character>();
         character.currentLane = laneId;
+        character.GetComponent<SpriteRenderer>().color = playerColor;
     }
 }
