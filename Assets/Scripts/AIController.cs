@@ -6,6 +6,8 @@ using UnityEngine;
 public class AIController : MonoBehaviour
 {
     private Character character;
+    
+    public PlayerStatus status = PlayerStatus.Unborn;
 
     protected void Awake()
     {
@@ -21,38 +23,34 @@ public class AIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (character.alive == false)
+        if (status == PlayerStatus.Alive)
         {
-            return;
+            if (character.alive == false)
+            {
+                status = PlayerStatus.Dead;
+                return;
+            }
         }
     }
 
     void FixedUpdate()
     {
-        if (!character)
+        if (status == PlayerStatus.Alive)
         {
-            return;
-        }
-        
-        if (character.alive == false)
-        {
-            return;
-        }
-        
-        int triggerLayerMask = 1 << LayerMask.NameToLayer("Trigger");
-        RaycastHit[] hits;
-        // Raycast against the slaughter machine
-        hits = Physics.RaycastAll(character.transform.position, character.transform.position + new Vector3(-50.0f, 0, 0), Mathf.Infinity,
-            triggerLayerMask);
+            int triggerLayerMask = 1 << LayerMask.NameToLayer("Trigger");
+            RaycastHit[] hits;
+            // Raycast against the slaughter machine
+            hits = Physics.RaycastAll(character.transform.position, character.transform.position + new Vector3(-50.0f, 0, 0), Mathf.Infinity,
+                triggerLayerMask);
 
-        for (int i = 0; i < hits.Length; i++)
-        {
-            var hit = hits[i];
-            if (hit.collider.CompareTag("SlaughterMachine"))
+            for (int i = 0; i < hits.Length; i++)
             {
-                character.Sprint();
+                var hit = hits[i];
+                if (hit.collider.CompareTag("SlaughterMachine"))
+                {
+                    character.Sprint();
+                }
             }
         }
-
     }
 }

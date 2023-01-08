@@ -31,13 +31,13 @@ public class PlayerController : MonoBehaviour
             characterActions.Down.AddDefaultBinding( Key.S );
             characterActions.Down.AddDefaultBinding( InputControlType.DPadDown );
             
-            characterActions.Sprint.AddDefaultBinding( Key.G );
-            characterActions.Sprint.AddDefaultBinding( InputControlType.Action1 );
+            characterActions.Sprint.AddDefaultBinding( Key.D );
+            characterActions.Sprint.AddDefaultBinding( InputControlType.DPadRight );
 
-            characterActions.Jump.AddDefaultBinding( Key.H );
+            characterActions.Jump.AddDefaultBinding( Key.F );
             characterActions.Jump.AddDefaultBinding( InputControlType.Action2 );
             
-            characterActions.Attack.AddDefaultBinding( Key.J );
+            characterActions.Attack.AddDefaultBinding( Key.G );
             characterActions.Attack.AddDefaultBinding( InputControlType.Action3 );
         }
         else if (playerId == 1)
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
             characterActions.Down.AddDefaultBinding( Key.DownArrow );
             characterActions.Down.AddDefaultBinding( InputControlType.DPadDown );
             
-            characterActions.Sprint.AddDefaultBinding( Key.Comma );
+            characterActions.Sprint.AddDefaultBinding( Key.RightArrow );
             characterActions.Sprint.AddDefaultBinding( InputControlType.Action1 );
 
             characterActions.Jump.AddDefaultBinding( Key.Period );
