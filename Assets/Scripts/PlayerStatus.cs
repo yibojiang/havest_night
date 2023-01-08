@@ -1,5 +1,5 @@
 ﻿
-enum PlayerStatus
+public enum PlayerStatus
 {
     Unborn,
     Alive,
