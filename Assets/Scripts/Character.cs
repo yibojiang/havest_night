@@ -79,6 +79,8 @@ public class Character : MonoBehaviour
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         attackBox.enabled = false;
+        
+        Physics.IgnoreCollision(controller, attackBox, true);
     }
 
     // Start is called before the first frame update
