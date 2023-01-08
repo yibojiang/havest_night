@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using InControl;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -13,6 +14,8 @@ public class PlayerController : MonoBehaviour
     protected CharacterActions characterActions;
 
     public GameObject playerPrefab;
+    
+    public GameObject playerTextPrefab;
 
     public PlayerStatus status = PlayerStatus.Unborn;
 
@@ -118,5 +121,13 @@ public class PlayerController : MonoBehaviour
         character = newPlayer.GetComponent<Character>();
         character.currentLane = laneId;
         character.GetComponent<SpriteRenderer>().color = playerColor;
+        
+        GameObject playerText = Instantiate(playerTextPrefab, Vector3.zero, Quaternion.identity);
+        playerText.transform.SetParent(newPlayer.transform);
+        playerText.transform.localPosition = new Vector3(0, 2, 0);
+        playerText.transform.localScale = new Vector3(1, 1, 1);
+        var textComponponent = playerText.GetComponent<TextMeshPro>();
+        textComponponent.text = $"{playerId + 1}P";
+        textComponponent.color = playerColor;
     }
 }

@@ -132,8 +132,8 @@ MonoBehaviour:
   currentLane: 0
   alive: 1
   fireRingInvincibleYSpeedRange: 3
-  standCapsuleHeight: 1.74
-  jumpCapsuleHeight: 1
+  standCapsuleHeight: 0.5
+  jumpCapsuleHeight: 0.1
   bigJumpCapsuleHeight: 0.5
   jumpType: 0
   characterState: 0
