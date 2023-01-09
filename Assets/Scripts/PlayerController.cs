@@ -11,9 +11,15 @@ public class PlayerController : Controller
 
     protected CharacterActions characterActions;
 
+    public int score;
+
+    public TextMeshPro textComponent;
+    public TextMeshPro scoreTextComponent;
+
     // Start is called before the first frame update
     void Start()
     {
+        score = 100;
         characterActions = new CharacterActions();
 
         if (playerId == 0)
@@ -55,7 +61,7 @@ public class PlayerController : Controller
     // Update is called once per frame
     void Update()
     {
-        if (status == PlayerStatus.Unborn)
+        if (status == PlayerStatus.Unborn || status == PlayerStatus.Dead)
         {
             // Hit any key to spawn the player character
             if (characterActions.Up.WasPressed || characterActions.Down.WasPressed ||
@@ -100,6 +106,16 @@ public class PlayerController : Controller
                 character.Attack();
             }
         }
+
+        if (textComponent)
+        {
+            textComponent.text = $"{playerId + 1}P";
+        }
+
+        if (scoreTextComponent)
+        {
+            scoreTextComponent.text = $"{score}";
+        }
     }
     
     protected override void SpawnPlayer(int inLaneId)
@@ -114,10 +130,22 @@ public class PlayerController : Controller
         
         GameObject playerText = Instantiate(characterTextPrefab, Vector3.zero, Quaternion.identity);
         playerText.transform.SetParent(newPlayer.transform);
-        playerText.transform.localPosition = new Vector3(0, 2, 0);
+        playerText.transform.localPosition = new Vector3(0, 2.4f, -2.0f);
         playerText.transform.localScale = new Vector3(1, 1, 1);
-        var textComponponent = playerText.GetComponent<TextMeshPro>();
-        textComponponent.text = $"{inLaneId + 1}P";
-        textComponponent.color = playerColor;
+        
+        textComponent = playerText.GetComponent<TextMeshPro>();
+        textComponent.text = $"{inLaneId + 1}P";
+        textComponent.fontSize = 5;
+        textComponent.color = playerColor;
+        
+        GameObject scoreText = Instantiate(characterTextPrefab, Vector3.zero, Quaternion.identity);
+        scoreText.transform.SetParent(newPlayer.transform);
+        scoreText.transform.localPosition = new Vector3(0, 2, -2.0f);
+        scoreText.transform.localScale = new Vector3(1, 1, 1);
+        
+        scoreTextComponent = scoreText.GetComponent<TextMeshPro>();
+        scoreTextComponent.text = $"{score}";
+        scoreTextComponent.fontSize = 7;
+        scoreTextComponent.color = Color.white;
     }
 }
