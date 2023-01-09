@@ -75,7 +75,11 @@ class RandomTrapGenerator: MonoBehaviour
                     Vector3 spawnPosition = new Vector3(Camera.main.transform.position.x + spawnOffset.x, LaneManager.instance.Lanes[i].collider.transform.position.y + spawnOffset.y, LaneManager.instance.Lanes[i].collider.transform.position.z); ;
                     newSpawn.transform.position = spawnPosition;
                     newSpawn.SetActive(true);
-                    newSpawn.GetComponent<InteractObject>().currentLane = i;
+                    var InteractObject = newSpawn.GetComponent<InteractObject>();
+                    if (InteractObject)
+                    {
+                        InteractObject.currentLane = i;
+                    }
                     laneCoolDown[i] = 0f;
                 }
             }

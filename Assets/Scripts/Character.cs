@@ -1,4 +1,4 @@
-#define DEBUG_CHARACTER
+// #define DEBUG_CHARACTER
 
 using System;
 using System.Collections;
@@ -251,6 +251,16 @@ public class Character : MonoBehaviour
 
     public void ChangeLaneUp()
     {
+        if (controller.isGrounded == false)
+        {
+            return;
+        }
+
+        if (characterState != CharacterState.Run)
+        {
+            return;
+        }
+        
         if (currentLane - 1 >= 0)
         {
             currentLane--;
@@ -260,6 +270,16 @@ public class Character : MonoBehaviour
     
     public void ChangeLaneDown()
     {
+        if (controller.isGrounded == false)
+        {
+            return;
+        }
+        
+        if (characterState != CharacterState.Run)
+        {
+            return;
+        }
+        
         if (currentLane + 1 <= LaneManager.instance.Lanes.Length - 1)
         {
             currentLane++;

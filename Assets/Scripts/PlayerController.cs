@@ -2,24 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using InControl;
-using TMPro;
 using UnityEngine;
+using TMPro;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Controller
 {
-    protected Character character;
-
     public int playerId;
 
     protected CharacterActions characterActions;
-
-    public GameObject playerPrefab;
-    
-    public GameObject playerTextPrefab;
-
-    public PlayerStatus status = PlayerStatus.Unborn;
-
-    public Color playerColor = Color.white;
 
     // Start is called before the first frame update
     void Start()
@@ -72,7 +62,8 @@ public class PlayerController : MonoBehaviour
                 characterActions.Sprint.WasPressed || characterActions.Jump.WasPressed ||
                 characterActions.Attack.WasPressed)
             {
-                SpawnPlayer();
+                // Set the player lane base on the player id
+                SpawnPlayer(playerId);
                 status = PlayerStatus.Alive;
             }
         }
@@ -110,24 +101,23 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    void SpawnPlayer()
+    
+    protected override void SpawnPlayer(int inLaneId)
     {
-        // set the player lane base on the player id
-        var laneId = playerId;
+        var laneId = inLaneId;
         Vector3 lanePosition = LaneManager.instance.Lanes[laneId].collider.transform.position;
         Vector3 cameraPosition = Camera.main.transform.position;
-        GameObject newPlayer = Instantiate(playerPrefab, new Vector3(cameraPosition.x + 1f, lanePosition.y + 0.5f, lanePosition.z), Quaternion.identity);
+        GameObject newPlayer = Instantiate(characterPrefab, new Vector3(cameraPosition.x + 1f, lanePosition.y + 0.5f, lanePosition.z), Quaternion.identity);
         character = newPlayer.GetComponent<Character>();
         character.currentLane = laneId;
         character.GetComponent<SpriteRenderer>().color = playerColor;
         
-        GameObject playerText = Instantiate(playerTextPrefab, Vector3.zero, Quaternion.identity);
+        GameObject playerText = Instantiate(characterTextPrefab, Vector3.zero, Quaternion.identity);
         playerText.transform.SetParent(newPlayer.transform);
         playerText.transform.localPosition = new Vector3(0, 2, 0);
         playerText.transform.localScale = new Vector3(1, 1, 1);
         var textComponponent = playerText.GetComponent<TextMeshPro>();
-        textComponponent.text = $"{playerId + 1}P";
+        textComponponent.text = $"{inLaneId + 1}P";
         textComponponent.color = playerColor;
     }
 }
