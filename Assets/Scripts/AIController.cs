@@ -18,7 +18,8 @@ public class AIController : Controller
 
     protected void Awake()
     {
-        
+        respawnTimer = respawnInterval + Random.Range(0.0f, respawnIntervalOff);
+        randomActionTimer = randomActionInterval + Random.Range(0.0f, randomActionIntervalOff);
     }
 
     // Start is called before the first frame update

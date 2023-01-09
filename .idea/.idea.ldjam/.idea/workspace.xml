@@ -3,26 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="2480492f-e150-41fb-aed2-930120a83ff4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Banana_Item.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Banana_Item.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Banana_Used.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Banana_Used.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/AIController.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/AIController.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/Chicken.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Chicken.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/HumanCharacter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/HumanCharacter.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Sheep.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Sheep.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/AIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AIController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RandomTrapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/RandomTrapGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_BURNTODEATH.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_BURNTODEATH.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_DEAD.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_DEAD.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_FALL.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_FALL.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_ONFIRE.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_ONFIRE.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_THROW.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_THROW.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Qrun.aseprite" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Qrun.aseprite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Sprites/Qrun.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Sprites/Qrun.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Sprites/Qrun.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Sprites/Qrun.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Sprites/chicken.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Sprites/chicken.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/chicken.aseprite" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/chicken.aseprite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InteractObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InteractObject.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +97,7 @@
       <updated>1672904192136</updated>
       <workItem from="1672904208615" duration="675000" />
       <workItem from="1673118628660" duration="34079000" />
-      <workItem from="1673204028661" duration="20524000" />
+      <workItem from="1673204028661" duration="21565000" />
     </task>
     <servers />
   </component>
@@ -136,13 +125,13 @@
       <breakpoints>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Character.cs</url>
-          <line>311</line>
+          <line>312</line>
           <properties documentPath="G:\projects\ldjam\Assets\Scripts\Character.cs" initialLine="291" containingFunctionPresentation="method 'OnTriggerEnter'">
             <startOffsets>
-              <option value="7984" />
+              <option value="8025" />
             </startOffsets>
             <endOffsets>
-              <option value="8012" />
+              <option value="8052" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />

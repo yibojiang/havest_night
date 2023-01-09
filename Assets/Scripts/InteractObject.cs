@@ -8,7 +8,8 @@ public class InteractObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        var sprite = GetComponent<SpriteRenderer>();
+        sprite.sortingOrder = currentLane;
     }
 
     // Update is called once per frame

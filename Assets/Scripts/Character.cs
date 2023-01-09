@@ -67,7 +67,7 @@ public class Character : MonoBehaviour
 
     private float xSpeedMultiplier = 1.0f;
 
-    private SpriteRenderer sprinte; 
+    private SpriteRenderer sprite; 
 
     
     [SerializeField]
@@ -77,7 +77,7 @@ public class Character : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
-        sprinte = GetComponent<SpriteRenderer>();
+        sprite = GetComponent<SpriteRenderer>();
 
         if (attackBox)
         {
@@ -118,6 +118,7 @@ public class Character : MonoBehaviour
         characterCollider.enabled = false;
         transform.position = targetPosition;
         characterCollider.enabled = true;
+        sprite.sortingOrder = currentLane;
     }
 
     // Update is called once per frame
@@ -309,7 +310,7 @@ public class Character : MonoBehaviour
         
         if (other.CompareTag("SlaughterMachine"))
         {
-            sprinte.color = Color.white;
+            sprite.color = Color.white;
             animator.SetBool("Die", true);
             animator.SetBool("DieOnSlaughter", true);
             Die();
@@ -349,7 +350,7 @@ public class Character : MonoBehaviour
                 // Check whether the current jump frame is free from fire ring damage
                 if (IsInvincibleToFireRing() == false)
                 {
-                    sprinte.color = Color.white;
+                    sprite.color = Color.white;
                     animator.SetBool("Die", true);
                     animator.SetBool("DieOnFire", true);
                     Die();
