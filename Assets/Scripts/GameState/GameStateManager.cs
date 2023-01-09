@@ -16,6 +16,9 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
     public TextMeshPro textWin;
 
     public PlayerController[] playerControllers;
+
+    public ScrollingCamera scrollingCamera;
+    
     public void Start()
     {
         currentGameState = GameState.PreGame;
@@ -75,7 +78,7 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
     {
         if (currentGameState == GameState.InGame)
         {
-            distance -= Time.deltaTime;
+            distance -= scrollingCamera.cameraSpeed * Time.deltaTime;
 
             if (distance < 0.0f)
             {
