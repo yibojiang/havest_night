@@ -80,6 +80,8 @@ class RandomTrapGenerator: MonoBehaviour
                     {
                         InteractObject.currentLane = i;
                     }
+
+                    newSpawn.GetComponent<SpriteRenderer>().sortingOrder = i;
                     laneCoolDown[i] = 0f;
                 }
             }

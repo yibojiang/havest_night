@@ -59,7 +59,7 @@ public class AIController : Controller
                 {
                     Destroy(character.gameObject);
                 }
-                playerColor = Random.ColorHSV(0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f);
+                // playerColor = Random.ColorHSV(0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f);
                 status = PlayerStatus.Alive;
                 SpawnPlayer(Random.Range(0, LaneManager.instance.Lanes.Length));
                 respawnTimer = respawnInterval + Random.Range(0.0f, respawnIntervalOff);
