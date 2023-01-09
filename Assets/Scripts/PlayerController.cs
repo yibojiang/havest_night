@@ -27,37 +27,36 @@ public class PlayerController : Controller
 
         if (playerId == 0)
         {
-            characterActions.Up.AddDefaultBinding( Key.W );
-            characterActions.Up.AddDefaultBinding( InputControlType.DPadUp );
-
-            characterActions.Down.AddDefaultBinding( Key.S );
-            characterActions.Down.AddDefaultBinding( InputControlType.DPadDown );
-            
-            characterActions.Sprint.AddDefaultBinding( Key.D );
-            characterActions.Sprint.AddDefaultBinding( InputControlType.DPadRight );
-
-            characterActions.Jump.AddDefaultBinding( Key.F );
-            characterActions.Jump.AddDefaultBinding( InputControlType.Action2 );
-            
-            characterActions.Attack.AddDefaultBinding( Key.G );
-            characterActions.Attack.AddDefaultBinding( InputControlType.Action3 );
+            characterActions.Up.AddDefaultBinding(Key.W);
+            characterActions.Down.AddDefaultBinding(Key.S);
+            characterActions.Sprint.AddDefaultBinding(Key.D);
+            characterActions.Jump.AddDefaultBinding(Key.F);
+            characterActions.Attack.AddDefaultBinding(Key.G);
         }
         else if (playerId == 1)
         {
-            characterActions.Up.AddDefaultBinding( Key.UpArrow );
-            characterActions.Up.AddDefaultBinding( InputControlType.DPadUp );
+            characterActions.Up.AddDefaultBinding(Key.UpArrow);
+            characterActions.Up.AddDefaultBinding(InputControlType.DPadUp);
 
-            characterActions.Down.AddDefaultBinding( Key.DownArrow );
-            characterActions.Down.AddDefaultBinding( InputControlType.DPadDown );
+            characterActions.Down.AddDefaultBinding(Key.DownArrow);
+            characterActions.Down.AddDefaultBinding(InputControlType.DPadDown);
             
-            characterActions.Sprint.AddDefaultBinding( Key.RightArrow );
-            characterActions.Sprint.AddDefaultBinding( InputControlType.Action1 );
+            characterActions.Sprint.AddDefaultBinding(Key.RightArrow);
+            characterActions.Sprint.AddDefaultBinding(InputControlType.Action1);
 
-            characterActions.Jump.AddDefaultBinding( Key.Period );
-            characterActions.Jump.AddDefaultBinding( InputControlType.Action2 );
+            characterActions.Jump.AddDefaultBinding(Key.Period);
+            characterActions.Jump.AddDefaultBinding(InputControlType.Action2);
             
-            characterActions.Attack.AddDefaultBinding( Key.Slash );
-            characterActions.Attack.AddDefaultBinding( InputControlType.Action3 );
+            characterActions.Attack.AddDefaultBinding(Key.Slash);
+            characterActions.Attack.AddDefaultBinding(InputControlType.Action3);
+        }
+        else if (playerId == 2)
+        {
+            characterActions.Up.AddDefaultBinding(InputControlType.DPadUp);
+            characterActions.Down.AddDefaultBinding(InputControlType.DPadDown);
+            characterActions.Sprint.AddDefaultBinding(InputControlType.DPadRight);
+            characterActions.Jump.AddDefaultBinding(InputControlType.Action2);
+            characterActions.Attack.AddDefaultBinding(InputControlType.Action3);
         }
     }
 

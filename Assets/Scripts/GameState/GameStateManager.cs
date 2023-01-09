@@ -91,7 +91,7 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
 
         if (textWin)
         {
-            textWin.text = $"Player {highestScorePlayerIndex} wins !\n'Space' to Restart";
+            textWin.text = $"Player {playerControllers[highestScorePlayerIndex].playerId} wins !\n'Space' to Restart";
         }
 
         scrollingCamera.cameraSpeed = 0.0f;
