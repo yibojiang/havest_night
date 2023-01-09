@@ -16,6 +16,9 @@ public class PlayerController : Controller
     public TextMeshPro textComponent;
     public TextMeshPro scoreTextComponent;
 
+    public float respawnTimer = 0.0f;
+    public float respawnDuration = 3.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +64,33 @@ public class PlayerController : Controller
     // Update is called once per frame
     void Update()
     {
-        if (status == PlayerStatus.Unborn || status == PlayerStatus.Dead)
+        if (textComponent)
+        {
+            textComponent.text = $"{playerId + 1}P";
+        }
+
+        if (scoreTextComponent)
+        {
+            scoreTextComponent.text = $"{score}";
+        }
+        
+        if (status == PlayerStatus.Dead)
+        {
+            respawnTimer -= Time.deltaTime;
+            if (respawnTimer < 0.0f)
+            {
+                SpawnPlayer(playerId);
+                status = PlayerStatus.Alive;
+                respawnTimer = respawnDuration;
+            }
+            
+            if (scoreTextComponent)
+            {
+                scoreTextComponent.text = $"{respawnTimer.ToString("F1")}s";
+            }
+        }
+        
+        if (status == PlayerStatus.Unborn)
         {
             // Hit any key to spawn the player character
             if (characterActions.Up.WasPressed || characterActions.Down.WasPressed ||
@@ -77,6 +106,7 @@ public class PlayerController : Controller
         {
             if (character.alive == false)
             {
+                respawnTimer = respawnDuration;
                 status = PlayerStatus.Dead;
                 score -= 20;
                 return;
@@ -107,20 +137,14 @@ public class PlayerController : Controller
                 character.Attack();
             }
         }
-
-        if (textComponent)
-        {
-            textComponent.text = $"{playerId + 1}P";
-        }
-
-        if (scoreTextComponent)
-        {
-            scoreTextComponent.text = $"{score}";
-        }
     }
     
     protected override void SpawnPlayer(int inLaneId)
     {
+        if (GameStateManager.instance.currentGameState == GameState.PreGame)
+        {
+            GameStateManager.instance.GameStart();
+        }
         var laneId = inLaneId;
         Vector3 lanePosition = LaneManager.instance.Lanes[laneId].collider.transform.position;
         Vector3 cameraPosition = Camera.main.transform.position;
