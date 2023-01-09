@@ -299,18 +299,6 @@ public class Character : MonoBehaviour
         {
             Hurt();
         }
-        
-        if (other.CompareTag("Banana_Used"))
-        {
-            Destroy(other.gameObject);
-            Hurt();
-        }
-
-        if (other.CompareTag("Item"))
-        {
-            GetItem(interactObj);
-            Destroy(other.gameObject);
-        }
 
         if (interactObj != null)
         {
@@ -318,6 +306,22 @@ public class Character : MonoBehaviour
             if (currentLane != interactObj.currentLane)
             {
                 return;
+            }
+            
+            if (other.CompareTag("Banana_Used"))
+            {
+                Hurt();
+                interactObj.gameObject.SetActive(false);
+                // interactObj.GetComponent<Collider>().enabled = false;
+                // interactObj.GetComponent<SpriteRenderer>().enabled = false;
+            }
+
+            if (other.CompareTag("Item"))
+            {
+                GetItem(interactObj);
+                interactObj.gameObject.SetActive(false);
+                // interactObj.GetComponent<Collider>().enabled = false;
+                // interactObj.GetComponent<SpriteRenderer>().enabled = false;
             }
 
             if (other.CompareTag("FireRing"))

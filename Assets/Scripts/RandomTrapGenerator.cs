@@ -5,10 +5,9 @@ class RandomTrapGenerator: MonoBehaviour
 {
     [SerializeField] private int poolSize = 20;
     [SerializeField] private GameObject prototype;
-    [SerializeField] private GameObject[] lanes;
     [SerializeField] private int maxNumberPerLane;
     [SerializeField] private float coolDown;
-    [SerializeField] private float[] laneCoolDown;
+    private float[] laneCoolDown;
     [SerializeField] private int spawnRatePerFrame = 33;
     [SerializeField] private int spawnRatePerFrameDivider = 10000;
     [SerializeField] private Vector2 spawnOffset;
@@ -29,14 +28,14 @@ class RandomTrapGenerator: MonoBehaviour
             available.Add(duplicate);
         }
 
-        inUse = new List<GameObject>[lanes.Length];
+        inUse = new List<GameObject>[LaneManager.instance.Lanes.Length];
         for(int i = 0; i < inUse.Length; i++)
         {
             inUse[i] = new List<GameObject>();
         }
 
-        laneCoolDown = new float[lanes.Length];
-        for(int i = 0; i < lanes.Length; i++)
+        laneCoolDown = new float[LaneManager.instance.Lanes.Length];
+        for(int i = 0; i < LaneManager.instance.Lanes.Length; i++)
         {
             laneCoolDown[i] = coolDown;
         }
@@ -73,9 +72,10 @@ class RandomTrapGenerator: MonoBehaviour
                     available.RemoveAt(available.Count - 1);
                     inUse[i].Add(newSpawn);
 
-                    Vector3 spawnPosition = new Vector3(Camera.main.transform.position.x + spawnOffset.x, lanes[i].transform.position.y + spawnOffset.y, lanes[i].transform.position.z); ;
+                    Vector3 spawnPosition = new Vector3(Camera.main.transform.position.x + spawnOffset.x, LaneManager.instance.Lanes[i].collider.transform.position.y + spawnOffset.y, LaneManager.instance.Lanes[i].collider.transform.position.z); ;
                     newSpawn.transform.position = spawnPosition;
                     newSpawn.SetActive(true);
+                    newSpawn.GetComponent<InteractObject>().currentLane = i;
                     laneCoolDown[i] = 0f;
                 }
             }
