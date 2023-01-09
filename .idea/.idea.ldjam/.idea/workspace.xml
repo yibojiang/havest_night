@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2480492f-e150-41fb-aed2-930120a83ff4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/PlayerText.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/PlayerText.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Firewheel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Firewheel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controller.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +93,7 @@
       <updated>1672904192136</updated>
       <workItem from="1672904208615" duration="675000" />
       <workItem from="1673118628660" duration="34079000" />
-      <workItem from="1673204028661" duration="24019000" />
+      <workItem from="1673204028661" duration="25319000" />
     </task>
     <servers />
   </component>
@@ -119,13 +121,13 @@
       <breakpoints>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Character.cs</url>
-          <line>312</line>
+          <line>313</line>
           <properties documentPath="G:\projects\ldjam\Assets\Scripts\Character.cs" initialLine="291" containingFunctionPresentation="method 'OnTriggerEnter'">
             <startOffsets>
-              <option value="8025" />
+              <option value="8052" />
             </startOffsets>
             <endOffsets>
-              <option value="8052" />
+              <option value="8079" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />

@@ -67,7 +67,9 @@ public class Character : MonoBehaviour
 
     private float xSpeedMultiplier = 1.0f;
 
-    private SpriteRenderer sprite; 
+    private SpriteRenderer sprite;
+
+    public Controller playerController;
 
     
     [SerializeField]
@@ -214,7 +216,6 @@ public class Character : MonoBehaviour
                 {
                     controller.height = bigJumpCapsuleHeight;
                 }
-            
             }
             else
             {
@@ -320,6 +321,28 @@ public class Character : MonoBehaviour
         {
             Hurt();
         }
+        
+        if (other.CompareTag("Score"))
+        {
+            var interactParent = other.gameObject.transform.parent.GetComponent<InteractObject>();
+            if (interactParent)
+            {
+                if (currentLane == interactParent.currentLane)
+                {
+                    if (playerController)
+                    {
+                        if (xSpeed > runSpeed)
+                        {
+                            playerController.GetScore(20);
+                        }
+                        else
+                        {
+                            playerController.GetScore(10);
+                        }
+                    }
+                }
+            }
+        }
 
         if (interactObj != null)
         {
@@ -333,16 +356,12 @@ public class Character : MonoBehaviour
             {
                 Hurt();
                 interactObj.gameObject.SetActive(false);
-                // interactObj.GetComponent<Collider>().enabled = false;
-                // interactObj.GetComponent<SpriteRenderer>().enabled = false;
             }
 
             if (other.CompareTag("Item"))
             {
                 GetItem(interactObj);
                 interactObj.gameObject.SetActive(false);
-                // interactObj.GetComponent<Collider>().enabled = false;
-                // interactObj.GetComponent<SpriteRenderer>().enabled = false;
             }
 
             if (other.CompareTag("FireRing"))

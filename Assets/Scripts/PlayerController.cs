@@ -19,7 +19,7 @@ public class PlayerController : Controller
     // Start is called before the first frame update
     void Start()
     {
-        score = 100;
+        score = 0;
         characterActions = new CharacterActions();
 
         if (playerId == 0)
@@ -78,6 +78,7 @@ public class PlayerController : Controller
             if (character.alive == false)
             {
                 status = PlayerStatus.Dead;
+                score -= 20;
                 return;
             }
         
@@ -147,5 +148,12 @@ public class PlayerController : Controller
         scoreTextComponent.text = $"{score}";
         scoreTextComponent.fontSize = 7;
         scoreTextComponent.color = Color.white;
+
+        character.playerController = this;
+    }
+
+    public override void GetScore(int inScore)
+    {
+        score += inScore;
     }
 }

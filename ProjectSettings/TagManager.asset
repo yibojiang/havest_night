@@ -9,6 +9,7 @@ TagManager:
   - AttackBox
   - Banana_Used
   - Item
+  - Score
   layers:
   - Default
   - TransparentFX
