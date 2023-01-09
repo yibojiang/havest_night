@@ -33,36 +33,39 @@ public class AIController : Controller
     // Update is called once per frame
     void Update()
     {
-        if (status == PlayerStatus.Alive)
+        if (GameStateManager.instance.currentGameState == GameState.InGame)
         {
-            if (character.alive == false)
+            if (status == PlayerStatus.Alive)
             {
-                status = PlayerStatus.Dead;
-                return;
-            }
-            
-            // Apply some action on ai randomly between intervals
-            randomActionTimer -= Time.deltaTime;
-            if (randomActionTimer < 0.0f)
-            {
-                RandomAction();
-                randomActionTimer = randomActionInterval + Random.Range(0.0f, randomActionIntervalOff);
-            }
-        }
-
-        if (status == PlayerStatus.Dead || status == PlayerStatus.Unborn)
-        {
-            respawnTimer -= Time.deltaTime;
-            if (respawnTimer < 0.0f)
-            {
-                if (character)
+                if (character.alive == false)
                 {
-                    Destroy(character.gameObject);
+                    status = PlayerStatus.Dead;
+                    return;
                 }
-                // playerColor = Random.ColorHSV(0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f);
-                status = PlayerStatus.Alive;
-                SpawnPlayer(Random.Range(0, LaneManager.instance.Lanes.Length));
-                respawnTimer = respawnInterval + Random.Range(0.0f, respawnIntervalOff);
+            
+                // Apply some action on ai randomly between intervals
+                randomActionTimer -= Time.deltaTime;
+                if (randomActionTimer < 0.0f)
+                {
+                    RandomAction();
+                    randomActionTimer = randomActionInterval + Random.Range(0.0f, randomActionIntervalOff);
+                }
+            }
+
+            if (status == PlayerStatus.Dead || status == PlayerStatus.Unborn)
+            {
+                respawnTimer -= Time.deltaTime;
+                if (respawnTimer < 0.0f)
+                {
+                    if (character)
+                    {
+                        Destroy(character.gameObject);
+                    }
+                    // playerColor = Random.ColorHSV(0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f);
+                    status = PlayerStatus.Alive;
+                    SpawnPlayer(Random.Range(0, LaneManager.instance.Lanes.Length));
+                    respawnTimer = respawnInterval + Random.Range(0.0f, respawnIntervalOff);
+                }
             }
         }
     }
@@ -145,14 +148,6 @@ public class AIController : Controller
         character.currentLane = laneId;
         character.runSpeed = character.runSpeed * 0.7f;
         character.GetComponent<SpriteRenderer>().color = playerColor;
-        
-        // GameObject playerText = Instantiate(characterTextPrefab, Vector3.zero, Quaternion.identity);
-        // playerText.transform.SetParent(newPlayer.transform);
-        // playerText.transform.localPosition = new Vector3(0, 2, 0);
-        // playerText.transform.localScale = new Vector3(1, 1, 1);
-        // var textComponponent = playerText.GetComponent<TextMeshPro>();
-        // textComponponent.text = $"COM";
-        // textComponponent.color = playerColor;
     }
 
 }

@@ -82,6 +82,7 @@ public class PlayerController : Controller
                 SpawnPlayer(playerId);
                 status = PlayerStatus.Alive;
                 respawnTimer = respawnDuration;
+                character.Invincible();
             }
             
             if (scoreTextComponent)
@@ -108,7 +109,6 @@ public class PlayerController : Controller
             {
                 respawnTimer = respawnDuration;
                 status = PlayerStatus.Dead;
-                score -= 20;
                 return;
             }
         

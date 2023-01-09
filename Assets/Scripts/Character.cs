@@ -71,7 +71,10 @@ public class Character : MonoBehaviour
 
     public Controller playerController;
 
-    
+    public float invincibleTimer = 0.0f;
+    public float invincibleDuration = 1.0f;
+    public bool invincible = false;
+
     [SerializeField]
     public Collider attackBox;
 
@@ -157,6 +160,25 @@ public class Character : MonoBehaviour
                 characterState = CharacterState.Run;
                 animator.SetBool("Hurt", false);
             }
+        }
+
+        if (invincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0.0f)
+            {
+                invincible = false;
+            }
+
+            var color = sprite.color;
+            color.a = Mathf.Abs(Mathf.Sin(10.0f * Time.time));
+            sprite.color = color;
+        }
+        else
+        {
+            var color = sprite.color;
+            color.a = 1.0f;
+            sprite.color = color;
         }
     }
 
@@ -307,6 +329,11 @@ public class Character : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (invincible)
+        {
+            return;
+        }
+        
         var interactObj = other.gameObject.GetComponent<InteractObject>();
         
         if (other.CompareTag("SlaughterMachine"))
@@ -324,20 +351,23 @@ public class Character : MonoBehaviour
         
         if (other.CompareTag("Score"))
         {
-            var interactParent = other.gameObject.transform.parent.GetComponent<InteractObject>();
-            if (interactParent)
+            if (characterState != CharacterState.Death)
             {
-                if (currentLane == interactParent.currentLane)
+                var interactParent = other.gameObject.transform.parent.GetComponent<InteractObject>();
+                if (interactParent)
                 {
-                    if (playerController)
+                    if (currentLane == interactParent.currentLane)
                     {
-                        if (xSpeed > runSpeed)
+                        if (playerController)
                         {
-                            playerController.GetScore(20);
-                        }
-                        else
-                        {
-                            playerController.GetScore(10);
+                            if (xSpeed > runSpeed)
+                            {
+                                playerController.GetScore(10);
+                            }
+                            else
+                            {
+                                playerController.GetScore(20);
+                            }
                         }
                     }
                 }
@@ -413,5 +443,11 @@ public class Character : MonoBehaviour
                 attackBox.enabled = true;
             }
         }
+    }
+
+    public void Invincible()
+    {
+        invincibleTimer = invincibleDuration;
+        invincible = true;
     }
 }

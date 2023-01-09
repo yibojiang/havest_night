@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
+using Cinemachine;
 using MultiplayerWithBindingsExample;
 using TMPro;
 
@@ -18,6 +19,15 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
     public PlayerController[] playerControllers;
 
     public ScrollingCamera scrollingCamera;
+
+    public HarvestMachine harvestMachine;
+
+    public float cameraSpeed = 4.5f;
+
+    public GameObject easyGroup;
+    public GameObject normalGroup;
+    public GameObject hardGroup;
+    public GameObject menu;
     
     public void Start()
     {
@@ -32,6 +42,7 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
             textDistance.gameObject.SetActive(false);
         }
         
+        scrollingCamera.cameraSpeed = 0.0f;
     }
 
     public void GameStart()
@@ -45,6 +56,18 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
         if (textDistance)
         {
             textDistance.gameObject.SetActive(true);
+        }
+
+        scrollingCamera.cameraSpeed = cameraSpeed;
+
+        if (harvestMachine)
+        {
+            harvestMachine.ShowUp();
+        }
+
+        if (menu)
+        {
+            menu.GetComponent<Animator>().SetTrigger("Hide");
         }
     }
 
@@ -68,10 +91,10 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
 
         if (textWin)
         {
-            textWin.text = $"Player {highestScorePlayerIndex} wins !";
+            textWin.text = $"Player {highestScorePlayerIndex} wins !\n'Space' to Restart";
         }
 
-        Time.timeScale = 0.0f;
+        scrollingCamera.cameraSpeed = 0.0f;
     }
 
     public void Update()
@@ -86,9 +109,37 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
                 GameOver();
             }
 
+            if (distance < totalDistance * 0.3)
+            {
+                easyGroup.SetActive(false);
+                normalGroup.SetActive(false);
+                hardGroup.SetActive(true);
+            }
+            else if (distance < totalDistance * 0.7)
+            {
+                easyGroup.SetActive(false);
+                normalGroup.SetActive(true);
+                hardGroup.SetActive(false);
+            }
+            else
+            {
+                easyGroup.SetActive(true);
+                normalGroup.SetActive(false);
+                hardGroup.SetActive(false);
+            }
+
             if (textDistance)
             {
                 textDistance.text = $"Remain {distance.ToString("F0")}m";
+            }
+        }
+
+        if (currentGameState == GameState.PostGame)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Time.timeScale = 1.0f;
+                Application.LoadLevel(Application.loadedLevel);
             }
         }
     }
