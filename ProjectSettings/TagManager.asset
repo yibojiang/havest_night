@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FireRing
+  - SlaughterMachine
+  - AttackBox
+  - Banana_Used
+  - Item
+  - Score
   layers:
   - Default
   - TransparentFX
@@ -11,10 +17,10 @@ TagManager:
   - 
   - Water
   - UI
+  - Ground
+  - Character
   - 
-  - 
-  - 
-  - 
+  - Trigger
   - 
   - 
   - 
