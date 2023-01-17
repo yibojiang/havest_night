@@ -3922,7 +3922,7 @@ MonoBehaviour:
   characterTextPrefab: {fileID: 4264004097362450347, guid: 7e725dfc3bd7df5449fcca1e14400183, type: 3}
   status: 0
   playerColor: {r: 0, g: 1, b: 0.1558013, a: 1}
-  playerId: 4
+  playerId: 3
   score: 0
   textComponent: {fileID: 0}
   scoreTextComponent: {fileID: 0}
@@ -4526,7 +4526,7 @@ MonoBehaviour:
   characterTextPrefab: {fileID: 4264004097362450347, guid: 7e725dfc3bd7df5449fcca1e14400183, type: 3}
   status: 0
   playerColor: {r: 1, g: 0.97617406, b: 0, a: 1}
-  playerId: 3
+  playerId: 2
   score: 0
   textComponent: {fileID: 0}
   scoreTextComponent: {fileID: 0}

@@ -5,6 +5,34 @@ using InControl;
 using UnityEngine;
 using TMPro;
 
+public class PlayerDeviceBindingSource : DeviceBindingSource
+{
+    protected int deviceId;
+    public PlayerDeviceBindingSource(int inDeviceId, InputControlType control) : base(control)
+    {
+        deviceId = inDeviceId;
+    }
+
+    public override float GetValue(InputDevice inputDevice)
+    {
+        if (deviceId < InputManager.Devices.Count)
+        {
+            return base.GetValue(InputManager.Devices[deviceId]);
+        }
+
+        return base.GetValue(inputDevice);
+    }
+
+    public override bool GetState(InputDevice inputDevice)
+    {
+        if (deviceId < InputManager.Devices.Count)
+        {
+            return base.GetState(InputManager.Devices[deviceId]);
+        }
+
+        return base.GetState(inputDevice);
+    }
+}
 public class PlayerController : Controller
 {
     public int playerId;
@@ -36,27 +64,19 @@ public class PlayerController : Controller
         else if (playerId == 1)
         {
             characterActions.Up.AddDefaultBinding(Key.UpArrow);
-            characterActions.Up.AddDefaultBinding(InputControlType.DPadUp);
-
             characterActions.Down.AddDefaultBinding(Key.DownArrow);
-            characterActions.Down.AddDefaultBinding(InputControlType.DPadDown);
-            
             characterActions.Sprint.AddDefaultBinding(Key.RightArrow);
-            characterActions.Sprint.AddDefaultBinding(InputControlType.Action1);
-
             characterActions.Jump.AddDefaultBinding(Key.Period);
-            characterActions.Jump.AddDefaultBinding(InputControlType.Action2);
-            
             characterActions.Attack.AddDefaultBinding(Key.Slash);
-            characterActions.Attack.AddDefaultBinding(InputControlType.Action3);
         }
-        else if (playerId == 2)
+        else
         {
-            characterActions.Up.AddDefaultBinding(InputControlType.DPadUp);
-            characterActions.Down.AddDefaultBinding(InputControlType.DPadDown);
-            characterActions.Sprint.AddDefaultBinding(InputControlType.DPadRight);
-            characterActions.Jump.AddDefaultBinding(InputControlType.Action2);
-            characterActions.Attack.AddDefaultBinding(InputControlType.Action3);
+            var deviceId = playerId - 2;
+            characterActions.Up.AddBinding(new PlayerDeviceBindingSource(deviceId, InputControlType.DPadUp));
+            characterActions.Down.AddBinding(new PlayerDeviceBindingSource(deviceId, InputControlType.DPadDown));
+            characterActions.Sprint.AddBinding(new PlayerDeviceBindingSource(deviceId, InputControlType.DPadRight));
+            characterActions.Jump.AddBinding(new PlayerDeviceBindingSource(deviceId, InputControlType.Action1));
+            characterActions.Attack.AddBinding(new PlayerDeviceBindingSource(deviceId, InputControlType.Action2));
         }
     }
 
@@ -78,7 +98,7 @@ public class PlayerController : Controller
             respawnTimer -= Time.deltaTime;
             if (respawnTimer < 0.0f)
             {
-                SpawnPlayer(playerId);
+                SpawnPlayer(playerId % LaneManager.instance.Lanes.Length);
                 status = PlayerStatus.Alive;
                 respawnTimer = respawnDuration;
                 character.Invincible();
@@ -98,7 +118,7 @@ public class PlayerController : Controller
                 characterActions.Attack.WasPressed)
             {
                 // Set the player lane base on the player id
-                SpawnPlayer(playerId);
+                SpawnPlayer(playerId % LaneManager.instance.Lanes.Length);
                 status = PlayerStatus.Alive;
             }
         }
@@ -144,7 +164,7 @@ public class PlayerController : Controller
         {
             GameStateManager.instance.GameStart();
         }
-        var laneId = inLaneId;
+        var laneId = inLaneId % LaneManager.instance.Lanes.Length;
         Vector3 lanePosition = LaneManager.instance.Lanes[laneId].collider.transform.position;
         Vector3 cameraPosition = Camera.main.transform.position;
         GameObject newPlayer = Instantiate(characterPrefab, new Vector3(cameraPosition.x + 1f, lanePosition.y + 0.5f, lanePosition.z), Quaternion.identity);
