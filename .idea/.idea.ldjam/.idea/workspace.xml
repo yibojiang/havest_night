@@ -3,21 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2480492f-e150-41fb-aed2-930120a83ff4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/PlayerText.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/PlayerText.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/TextDistance.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/TextDistance.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/TextWin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/TextWin.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/manual.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/manual.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/manual_start.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/manual_start.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameState/GameStateManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameState/GameStateManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_BURNTODEATH.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_BURNTODEATH.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_DEAD.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_DEAD.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_FALL.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_FALL.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_ONFIRE.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_ONFIRE.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_STAND.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_STAND.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_THROW.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Animations/Qrun_THROW.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +107,7 @@
       <workItem from="1673244486050" duration="11484000" />
       <workItem from="1673425802937" duration="15000" />
       <workItem from="1673940325668" duration="4798000" />
-      <workItem from="1674107072477" duration="3044000" />
+      <workItem from="1674107072477" duration="5226000" />
     </task>
     <servers />
   </component>
@@ -158,13 +148,13 @@
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Character.cs</url>
-          <line>449</line>
+          <line>454</line>
           <properties documentPath="G:\projects\ldjam\Assets\Scripts\Character.cs" initialLine="449" containingFunctionPresentation="method 'Invincible'">
             <startOffsets>
-              <option value="11761" />
+              <option value="11854" />
             </startOffsets>
             <endOffsets>
-              <option value="11798" />
+              <option value="11891" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />

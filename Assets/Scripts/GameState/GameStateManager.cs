@@ -4,6 +4,14 @@ using System.Collections.Generic;
 using Cinemachine;
 using MultiplayerWithBindingsExample;
 using TMPro;
+using UnityEngine.UI;
+
+enum PlayerIconType
+{
+    Normal,
+    Sad,
+    Hurt
+}
 
 class GameStateManager: SingletonBehaviour<GameStateManager>
 {
@@ -11,12 +19,16 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
 
     public float distance = 0;
     public float totalDistance = 500;
-
-    // public TextMeshPro textDistance;
-    public TextMeshProUGUI textDistance;
     
-    // public TextMeshPro textWin;
+    public TextMeshProUGUI textDistance;
     public TextMeshProUGUI textWin;
+
+    public TextMeshProUGUI[] textResultPlayerScores;
+    public Image[] imgPlayerIcon;
+    public GameObject panelResult;
+    public Sprite[] playerNormalIcons;
+    public Sprite[] playerSadIcons;
+    public Sprite[] playerHurtIcons;
 
     public PlayerController[] playerControllers;
 
@@ -44,7 +56,25 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
             textDistance.gameObject.SetActive(false);
         }
         
+        if (panelResult)
+        {
+            panelResult.SetActive(false);
+        }
+        
         scrollingCamera.cameraSpeed = 0.0f;
+    }
+
+    public void UpdatePlayerScore(int playerId, int score)
+    {
+        if (playerId < textResultPlayerScores.Length)
+        {
+            textResultPlayerScores[playerId].text = score.ToString();
+        }
+    }
+
+    public void UpdatePlayerIcon(int playerId, int score)
+    {
+        
     }
 
     public void GameStart()
@@ -78,6 +108,11 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
         if (textWin)
         {
             textWin.gameObject.SetActive(true);    
+        }
+        
+        if (panelResult)
+        {
+            panelResult.SetActive(true);
         }
         
         currentGameState = GameState.PostGame;

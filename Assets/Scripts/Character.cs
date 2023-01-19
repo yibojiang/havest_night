@@ -433,6 +433,11 @@ public class Character : MonoBehaviour
 
     public void Attack()
     {
+        if (controller.isGrounded == false)
+        {
+            return;
+        }
+        
         if (characterState == CharacterState.Run)
         {
             characterState = CharacterState.Attack;
