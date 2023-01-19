@@ -12,9 +12,11 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
     public float distance = 0;
     public float totalDistance = 500;
 
-    public TextMeshPro textDistance;
+    // public TextMeshPro textDistance;
+    public TextMeshProUGUI textDistance;
     
-    public TextMeshPro textWin;
+    // public TextMeshPro textWin;
+    public TextMeshProUGUI textWin;
 
     public PlayerController[] playerControllers;
 
@@ -91,7 +93,7 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
 
         if (textWin)
         {
-            textWin.text = $"Player {playerControllers[highestScorePlayerIndex].playerId} wins !\n'Space' to Restart";
+            textWin.text = $"Player {playerControllers[highestScorePlayerIndex].playerId + 1} wins !\n'Space' to Restart";
         }
 
         scrollingCamera.cameraSpeed = 0.0f;
@@ -130,7 +132,7 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
 
             if (textDistance)
             {
-                textDistance.text = $"Remain {distance.ToString("F0")}m";
+                textDistance.text = $"{distance.ToString("F0")}m LEFT";
             }
         }
 
