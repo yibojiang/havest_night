@@ -113,6 +113,19 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
         if (panelResult)
         {
             panelResult.SetActive(true);
+            for (int i = 0; i < playerControllers.Length; i++)
+            {
+                if (playerControllers[i].status == PlayerStatus.Unborn)
+                {
+                    textResultPlayerScores[i].transform.parent.gameObject.SetActive(false);
+                }
+                else
+                {
+                    textResultPlayerScores[i].transform.parent.gameObject.SetActive(true);
+                    textResultPlayerScores[i].text = $"{playerControllers[i].score}";
+                }
+                
+            }
         }
         
         currentGameState = GameState.PostGame;
