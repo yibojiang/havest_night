@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2480492f-e150-41fb-aed2-930120a83ff4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/fire wheel_Fire circle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Animations/fire wheel_Fire circle.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Texture/Sprites/character animation sample.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Texture/Sprites/character animation sample.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Texture/Sprites/fire wheel.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Sprites/fire wheel.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,10 +21,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/11d97693183d4a6bb35c29ae7882c66b81b600/0c/bc18459e/TextureImporter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4746c126b0b54f3b834845974d1a9190159000/76/b3fb084c/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9f10e365afff4960956a72ff2ce152bd2e600/da/7893a78e/ISpriteNameFileIdDataProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e5b1d4d7071a4b08a2c352e4980e4bc41a000/47/67db5d14/CharacterController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e5b1d4d7071a4b08a2c352e4980e4bc41a000/ac/a7281d91/Collider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AnimationImporter/Editor/AnimationImporter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CharacterActions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/HarvestMachine.cs" root0="FORCE_HIGHLIGHTING" />
@@ -71,10 +82,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="5036">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="5036" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -106,7 +117,7 @@
       <workItem from="1674257078636" duration="689000" />
       <workItem from="1674372625961" duration="2828000" />
       <workItem from="1674412138315" duration="475000" />
-      <workItem from="1674412771893" duration="593000" />
+      <workItem from="1674412771893" duration="4639000" />
     </task>
     <servers />
   </component>
@@ -160,5 +171,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Frame#AnimationImporter.AnimationImporter.CreateSprites" memberName="importer" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
