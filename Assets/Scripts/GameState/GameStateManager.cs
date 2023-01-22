@@ -4,6 +4,14 @@ using System.Collections.Generic;
 using Cinemachine;
 using MultiplayerWithBindingsExample;
 using TMPro;
+using UnityEngine.UI;
+
+enum PlayerIconType
+{
+    Normal,
+    Sad,
+    Hurt
+}
 
 class GameStateManager: SingletonBehaviour<GameStateManager>
 {
@@ -11,10 +19,16 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
 
     public float distance = 0;
     public float totalDistance = 500;
-
-    public TextMeshPro textDistance;
     
-    public TextMeshPro textWin;
+    public TextMeshProUGUI textDistance;
+    public TextMeshProUGUI textWin;
+
+    public TextMeshProUGUI[] textResultPlayerScores;
+    public Image[] imgPlayerIcon;
+    public GameObject panelResult;
+    public Sprite[] playerNormalIcons;
+    public Sprite[] playerSadIcons;
+    public Sprite[] playerHurtIcons;
 
     public PlayerController[] playerControllers;
 
@@ -42,7 +56,25 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
             textDistance.gameObject.SetActive(false);
         }
         
+        if (panelResult)
+        {
+            panelResult.SetActive(false);
+        }
+        
         scrollingCamera.cameraSpeed = 0.0f;
+    }
+
+    public void UpdatePlayerScore(int playerId, int score)
+    {
+        if (playerId < textResultPlayerScores.Length)
+        {
+            textResultPlayerScores[playerId].text = score.ToString();
+        }
+    }
+
+    public void UpdatePlayerIcon(int playerId, int score)
+    {
+        
     }
 
     public void GameStart()
@@ -78,6 +110,24 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
             textWin.gameObject.SetActive(true);    
         }
         
+        if (panelResult)
+        {
+            panelResult.SetActive(true);
+            for (int i = 0; i < playerControllers.Length; i++)
+            {
+                if (playerControllers[i].status == PlayerStatus.Unborn)
+                {
+                    textResultPlayerScores[i].transform.parent.gameObject.SetActive(false);
+                }
+                else
+                {
+                    textResultPlayerScores[i].transform.parent.gameObject.SetActive(true);
+                    textResultPlayerScores[i].text = $"{playerControllers[i].score}";
+                }
+                
+            }
+        }
+        
         currentGameState = GameState.PostGame;
 
         int highestScorePlayerIndex = 0;
@@ -91,7 +141,7 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
 
         if (textWin)
         {
-            textWin.text = $"Player {playerControllers[highestScorePlayerIndex].playerId} wins !\n'Space' to Restart";
+            textWin.text = $"Player {playerControllers[highestScorePlayerIndex].playerId + 1} wins !\n'Space' to Restart";
         }
 
         scrollingCamera.cameraSpeed = 0.0f;
@@ -130,7 +180,7 @@ class GameStateManager: SingletonBehaviour<GameStateManager>
 
             if (textDistance)
             {
-                textDistance.text = $"Remain {distance.ToString("F0")}m";
+                textDistance.text = $"{distance.ToString("F0")}m LEFT";
             }
         }
 

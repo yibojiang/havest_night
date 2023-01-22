@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2480492f-e150-41fb-aed2-930120a83ff4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/fire wheel_Fire circle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Animations/fire wheel_Fire circle.anim" afterDir="false" />
-    </list>
+    <list default="true" id="2480492f-e150-41fb-aed2-930120a83ff4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,10 +69,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="7724">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="7724" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -104,7 +99,10 @@
       <workItem from="1673204028661" duration="28625000" />
       <workItem from="1673244486050" duration="11484000" />
       <workItem from="1673425802937" duration="15000" />
-      <workItem from="1673940325668" duration="4191000" />
+      <workItem from="1673940325668" duration="4798000" />
+      <workItem from="1674107072477" duration="5516000" />
+      <workItem from="1674257078636" duration="689000" />
+      <workItem from="1674372625961" duration="2236000" />
     </task>
     <servers />
   </component>
@@ -145,42 +143,16 @@
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Character.cs</url>
-          <line>449</line>
+          <line>454</line>
           <properties documentPath="G:\projects\ldjam\Assets\Scripts\Character.cs" initialLine="449" containingFunctionPresentation="method 'Invincible'">
             <startOffsets>
-              <option value="11761" />
+              <option value="11854" />
             </startOffsets>
             <endOffsets>
-              <option value="11798" />
+              <option value="11891" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs</url>
-          <line>22</line>
-          <properties documentPath="G:\projects\ldjam\Assets\Scripts\PlayerController.cs" initialLine="22" containingFunctionPresentation="method 'GetValue'">
-            <startOffsets>
-              <option value="566" />
-            </startOffsets>
-            <endOffsets>
-              <option value="600" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs</url>
-          <line>32</line>
-          <properties documentPath="G:\projects\ldjam\Assets\Scripts\PlayerController.cs" initialLine="32" containingFunctionPresentation="method 'GetState'">
-            <startOffsets>
-              <option value="819" />
-            </startOffsets>
-            <endOffsets>
-              <option value="853" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

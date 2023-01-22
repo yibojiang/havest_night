@@ -106,7 +106,7 @@ public class PlayerController : Controller
             
             if (scoreTextComponent)
             {
-                scoreTextComponent.text = $"{respawnTimer.ToString("F1")}s";
+                scoreTextComponent.text = $"{respawnTimer.ToString("F1")}";
             }
         }
         
@@ -174,7 +174,7 @@ public class PlayerController : Controller
         
         GameObject playerText = Instantiate(characterTextPrefab, Vector3.zero, Quaternion.identity);
         playerText.transform.SetParent(newPlayer.transform);
-        playerText.transform.localPosition = new Vector3(0, 2.4f, -2.0f);
+        playerText.transform.localPosition = new Vector3(0, 2.5f, -2.0f);
         playerText.transform.localScale = new Vector3(1, 1, 1);
         
         textComponent = playerText.GetComponent<TextMeshPro>();
@@ -189,7 +189,7 @@ public class PlayerController : Controller
         
         scoreTextComponent = scoreText.GetComponent<TextMeshPro>();
         scoreTextComponent.text = $"{score}";
-        scoreTextComponent.fontSize = 7;
+        scoreTextComponent.fontSize = 5;
         scoreTextComponent.color = Color.white;
 
         character.playerController = this;
