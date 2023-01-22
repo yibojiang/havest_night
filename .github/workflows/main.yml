@@ -37,7 +37,7 @@ jobs:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
 
- deployPages:
+  deployPages:
     needs: buildForAllSupportedPlatforms
     name: Deploy to Github Pages 🚀
     runs-on: ubuntu-latest
