@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2480492f-e150-41fb-aed2-930120a83ff4" name="Changes" comment="" />
+    <list default="true" id="2480492f-e150-41fb-aed2-930120a83ff4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +105,8 @@
       <workItem from="1673940325668" duration="4798000" />
       <workItem from="1674107072477" duration="5516000" />
       <workItem from="1674257078636" duration="689000" />
-      <workItem from="1674372625961" duration="2236000" />
+      <workItem from="1674372625961" duration="2828000" />
+      <workItem from="1674412138315" duration="475000" />
     </task>
     <servers />
   </component>
