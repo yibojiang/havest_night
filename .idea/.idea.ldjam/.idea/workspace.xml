@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2480492f-e150-41fb-aed2-930120a83ff4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ldjam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Animations/fire wheel_Fire circle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Animations/fire wheel_Fire circle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Sprites/character animation sample.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Sprites/character animation sample.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Texture/Sprites/fire wheel.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Texture/Sprites/fire wheel.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Search.settings" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Search.settings" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +109,7 @@
       <workItem from="1674257078636" duration="689000" />
       <workItem from="1674372625961" duration="2828000" />
       <workItem from="1674412138315" duration="475000" />
-      <workItem from="1674412771893" duration="4639000" />
+      <workItem from="1674412771893" duration="5502000" />
     </task>
     <servers />
   </component>
