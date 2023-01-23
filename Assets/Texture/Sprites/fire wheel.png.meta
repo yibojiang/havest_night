@@ -149,7 +149,7 @@ TextureImporter:
         width: 16
         height: 71
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,14 +170,14 @@ TextureImporter:
         width: 16
         height: 71
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00000000000000000800000000000000
-      internalID: 0
+      spriteID: bbdb8a69ffffffff0800000000000000
+      internalID: -1767326277
       vertices: []
       indices: 
       edges: []
@@ -191,14 +191,14 @@ TextureImporter:
         width: 16
         height: 71
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00000000000000000800000000000000
-      internalID: 0
+      spriteID: de8829c5000000000800000000000000
+      internalID: 1553107181
       vertices: []
       indices: 
       edges: []
@@ -212,14 +212,14 @@ TextureImporter:
         width: 16
         height: 71
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00000000000000000800000000000000
-      internalID: 0
+      spriteID: 88ff704dffffffff0800000000000000
+      internalID: -737673336
       vertices: []
       indices: 
       edges: []
@@ -227,7 +227,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8cb3633b211bef54eb950c0e5a0b513b
     internalID: 0
     vertices: []
     indices: 
@@ -235,10 +235,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fire wheel 1: 0
-      fire wheel 2: 0
+      fire wheel 1: -1767326277
+      fire wheel 2: 1553107181
       fire wheel 0: -6451408459549239213
-      fire wheel 3: 0
+      fire wheel 3: -737673336
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
