@@ -37,7 +37,7 @@ class RandomTrapGenerator: MonoBehaviour
         laneCoolDown = new float[LaneManager.instance.Lanes.Length];
         for(int i = 0; i < LaneManager.instance.Lanes.Length; i++)
         {
-            laneCoolDown[i] = coolDown;
+            laneCoolDown[i] = Random.Range(0.0f, coolDown);
         }
     }
     public void Update()
@@ -63,28 +63,31 @@ class RandomTrapGenerator: MonoBehaviour
         {
             laneCoolDown[i] += Time.deltaTime;
 
-            if (inUse[i].Count  < maxNumberPerLane && laneCoolDown[i] > coolDown && available.Count > 0)
+            if (laneCoolDown[i] > coolDown)
             {
-                int roll = random.Next(0, spawnRatePerFrameDivider);
-                if(roll < spawnRatePerFrame)
+                laneCoolDown[i] -= coolDown;
+                if (inUse[i].Count  < maxNumberPerLane && available.Count > 0)
                 {
-                    GameObject newSpawn = available[available.Count - 1];
-                    available.RemoveAt(available.Count - 1);
-                    inUse[i].Add(newSpawn);
-
-                    Vector3 spawnPosition = new Vector3(Camera.main.transform.position.x + spawnOffset.x, LaneManager.instance.Lanes[i].collider.transform.position.y + spawnOffset.y, LaneManager.instance.Lanes[i].collider.transform.position.z); ;
-                    newSpawn.transform.position = spawnPosition;
-                    newSpawn.SetActive(true);
-                    var InteractObject = newSpawn.GetComponent<InteractObject>();
-                    if (InteractObject)
+                    int roll = random.Next(0, spawnRatePerFrameDivider);
+                    if (roll < spawnRatePerFrame)
                     {
-                        InteractObject.currentLane = i;
-                    }
+                        GameObject newSpawn = available[available.Count - 1];
+                        available.RemoveAt(available.Count - 1);
+                        inUse[i].Add(newSpawn);
 
-                    newSpawn.GetComponent<SpriteRenderer>().sortingOrder = i;
-                    laneCoolDown[i] = 0f;
+                        Vector3 spawnPosition = new Vector3(Camera.main.transform.position.x + spawnOffset.x, LaneManager.instance.Lanes[i].collider.transform.position.y + spawnOffset.y, LaneManager.instance.Lanes[i].collider.transform.position.z); ;
+                        newSpawn.transform.position = spawnPosition;
+                        newSpawn.SetActive(true);
+                        var InteractObject = newSpawn.GetComponent<InteractObject>();
+                        if (InteractObject)
+                        {
+                            InteractObject.currentLane = i;
+                        }
+
+                        newSpawn.GetComponent<SpriteRenderer>().sortingOrder = i;
+                    }
                 }
-            }
+            }            
         }
     }
 }

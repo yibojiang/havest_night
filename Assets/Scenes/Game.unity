@@ -1857,7 +1857,7 @@ MonoBehaviour:
   maxNumberPerLane: 0
   coolDown: 5
   spawnRatePerFrame: 0
-  spawnRatePerFrameDivider: 10000
+  spawnRatePerFrameDivider: 100
   spawnOffset: {x: 12, y: 0}
 --- !u!1 &440270034
 GameObject:
@@ -2660,8 +2660,8 @@ MonoBehaviour:
   prototype: {fileID: 3516832830611272707, guid: 879f8d2b5b883734abe1e14f60ae5113, type: 3}
   maxNumberPerLane: 2
   coolDown: 2
-  spawnRatePerFrame: 8
-  spawnRatePerFrameDivider: 10000
+  spawnRatePerFrame: 60
+  spawnRatePerFrameDivider: 100
   spawnOffset: {x: 12, y: 0}
 --- !u!1 &677745476
 GameObject:
@@ -3837,10 +3837,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolSize: 20
   prototype: {fileID: 3516832830611272707, guid: 879f8d2b5b883734abe1e14f60ae5113, type: 3}
-  maxNumberPerLane: 3
+  maxNumberPerLane: 2
   coolDown: 2
-  spawnRatePerFrame: 4
-  spawnRatePerFrameDivider: 10000
+  spawnRatePerFrame: 25
+  spawnRatePerFrameDivider: 100
   spawnOffset: {x: 12, y: 0}
 --- !u!1 &991485897
 GameObject:
@@ -4788,9 +4788,9 @@ MonoBehaviour:
   poolSize: 20
   prototype: {fileID: 2370841049462672075, guid: 0b370983119acd645af920ddc4ea96d4, type: 3}
   maxNumberPerLane: 3
-  coolDown: 1
-  spawnRatePerFrame: 6
-  spawnRatePerFrameDivider: 10000
+  coolDown: 1.5
+  spawnRatePerFrame: 45
+  spawnRatePerFrameDivider: 100
   spawnOffset: {x: 12, y: 0}
 --- !u!1 &1240307086
 GameObject:
@@ -5365,9 +5365,9 @@ MonoBehaviour:
   poolSize: 20
   prototype: {fileID: 2370841049462672075, guid: 0b370983119acd645af920ddc4ea96d4, type: 3}
   maxNumberPerLane: 2
-  coolDown: 2
-  spawnRatePerFrame: 3
-  spawnRatePerFrameDivider: 10000
+  coolDown: 1.5
+  spawnRatePerFrame: 25
+  spawnRatePerFrameDivider: 100
   spawnOffset: {x: 12, y: 0}
 --- !u!1 &1450398460
 GameObject:
@@ -5491,10 +5491,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolSize: 20
   prototype: {fileID: 3516832830611272707, guid: 879f8d2b5b883734abe1e14f60ae5113, type: 3}
-  maxNumberPerLane: 1
-  coolDown: 3
-  spawnRatePerFrame: 3
-  spawnRatePerFrameDivider: 10000
+  maxNumberPerLane: 2
+  coolDown: 2
+  spawnRatePerFrame: 20
+  spawnRatePerFrameDivider: 100
   spawnOffset: {x: 12, y: 0}
 --- !u!1 &1467026379
 GameObject:
